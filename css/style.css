@@ -1,0 +1,257 @@
+#cancontainer {
+	width: 100%;
+	padding: 5px 0;
+	position: relative;
+	z-index: 100;
+	border-top: 1px solid #DDD;
+}
+
+#cancontents {
+	width: 200px;
+	z-index:10;
+}
+
+#cancontainer #cancontents ul li{
+	padding: 8px 10px;
+	margin: 0 !important;
+	position: relative;
+	border-top: 1px solid #191919;
+	box-shadow: inset 0px 1px 1px rgba(200, 200, 200, .1);
+	
+	background: #202020;
+}
+
+#cancontainer #cancontents ul li:first-child{}
+#cancontainer #cancontents ul li:last-child{}
+
+#cancontainer #cancontents ul li:hover{
+	background: #262626;
+}
+#cancontainer #cancontents ul li a{
+	color:#f5f5f5;
+	text-shadow:0px -1px 1px #000;
+	display:block;
+	margin:0 !important;
+	text-transform:none;
+	font-size:12px;
+	text-decoration: none;
+}
+#cancontainer #cancontents ul li a:hover{
+	text-decoration: none !important;
+}
+#cancontainer #cancontents ul li a img{
+	padding:0;
+	box-shadow: none;
+}
+#cancontainer.item-comments{
+	position: absolute;
+	width: 200px;
+	z-index: 100;
+	bottom: 40px;
+}
+#canbutton{
+	width: 16px;
+	height: 14px;
+	padding: 2px 0;
+	margin: 0 0 0 5px;
+	display: inline-block;
+	position:relative;
+	
+	text-align: center;
+}
+
+#canbutton:active {
+	top: 0;
+}
+
+#canbutton img{
+	padding:0;
+}
+.cantip{
+	width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    border-top: 6px solid #202020;
+    
+    position: absolute;
+    bottom: -6px;
+    left: 43px;
+    
+    z-index: 20;
+}
+
+.cankey-remove,
+.cankey-edit,
+.cankey-remove:active,
+.cankey-edit:active {
+	position: absolute;
+	top: 10px;
+}
+
+.cankey-remove,
+.cankey-remove:active {
+	top: 8px;
+	right: 20px;
+	text-align: center;
+}
+
+.cankey-edit,
+.cankey-edit:active {
+	top: 11px;
+	right: 3px;
+}
+
+.cankey-editor{
+	position:absolute;
+	left:100%;
+	bottom: 0px;
+	display:none;
+	
+	padding: 10px;
+	
+	background: #202020;
+}
+
+.cankey-editor textarea{
+	padding:8px !important;
+	width:300px !important;
+	min-height: 147px;
+	max-height: 400px;
+	
+	display:block;
+	border-radius:0;
+	margin: 10px 0;
+}
+.cankey-editor input[type='text']{
+	width: 280px !important;
+	padding: 10px !important;
+	margin: 0 0 5px 0 !important;
+	border: none !important;
+	float:left;
+	line-height: 16px !important;
+	
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	
+	border-radius: 0;
+	
+}
+.cankey-editor input[type='text']:not(:focus){
+	background: transparent;
+	border: none;
+	padding-left: 0px !important;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.cankey-editor select#cankey-editor-cat{
+	width:auto !important;
+	display:block;
+	float:left;
+	border-radius:0;
+}
+.cankey-editor input[type="submit"]{
+	width: 100px;
+	height: 28px;
+	float:right;
+	margin-right:0;
+	color: #EEE;
+	line-height: 20px;
+	background-color: #EF452C;
+	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%,rgba(0, 0, 0, .2) 100%);
+	background-position: top left,  93% -735px;
+	background-repeat: repeat, no-repeat;
+	box-shadow:inset 0px 1px 1px rgba(255,255,255,.3);
+	text-shadow:0px -1px 1px rgba(0, 0, 0, .2);
+	border: 1px solid #901B09;
+	border-top-color: #B23D2B;
+	border-left-color: #B23D2B;
+}
+
+#can-close-editor{
+	color:#fff;
+	text-decoration:none;
+	/*position: absolute;
+	right: 5px;
+	bottom: 5px;*/
+	float:right;
+}
+
+
+#canpanel{
+	display: none;
+	position: absolute;
+	bottom: 150%;
+	left: -36px;
+	background: #222;
+}
+
+.can-buttons{
+
+}
+.can-buttons a {
+	display: inline-block;
+	margin: 0px 2px 2px 1px !important;
+	padding: 5px 7px;
+	
+	color: #CCC;
+	font-size: 12px;
+	line-height: 30px;
+	text-transform: none;
+	text-decoration: none;
+}
+
+.can-buttons a:hover{
+	text-decoration:none !important;
+}
+
+.can-buttons a:active {top: 0;}
+
+.can-buttons #can-new {
+	float: right;
+}
+
+/*
+#can-new{
+	float:right;
+	background:#ef452c -webkit-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%);
+	border:1px solid #901B09;
+	border-top-color:#B23D2B;
+	border-left-color:#B23D2B;
+	
+	box-shadow:inset 0px 1px 1px rgba(255,255,255,.3);
+	text-shadow:0px -1px 1px rgba(0, 0, 0, .2);
+	color:#fff;
+}
+*/
+.can-keyname{
+	padding-right:40px;
+}
+
+#canlist{
+	max-height: 300px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin:0px !important;
+}
+
+.cankey-op .cantext{
+	display:none;
+}
+
+#can_previewbox{
+	display:none;
+	width:200px;
+}
+#can_previewbox textarea{
+	border:none;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+label[for="bbp_reply_content"] {float: left;}
