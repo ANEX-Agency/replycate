@@ -62,7 +62,7 @@
 					'<a href="#" class="can-keyname">'+key+'</a> '+
 					'<span class="cantext" >'+val+'</span> '+
 					'<a href="#" class="cankey-remove" title="Delete Can">&times;</a> '+
-					'<a href="#" data-key="'+key+'" class="cankey-edit" title="Edit Can"><img src="'+chrome.extension.getURL('img/icon-edit.png')+'" title="Edit" alt="edit" /></a> '+
+					'<a href="#" data-key="'+key+'" class="cankey-edit" title="Edit Can"><img src="'+chrome.extension.getURL('assets/img/icon-edit.png')+'" title="Edit" alt="edit" /></a> '+
 				'</li>');
 	}
 
@@ -146,7 +146,7 @@
 	function construct(){
 	
 		//Setup Main Can Button
-		var $canbutton = $('<a href="#" id="canbutton"><img src="'+chrome.extension.getURL('img/icon-paste.png')+'" title="Paste some Text" /></a>');
+		var $canbutton = $('<a href="#" id="canbutton"><img src="'+chrome.extension.getURL('assets/img/icon-paste.png')+'" title="Paste some Text" /></a>');
 		
 		/*$canbutton.click(function(e){
 			e.preventDefault();
@@ -376,6 +376,6 @@
 	}
 	
 	//Load styles
-	$('head').append('<link type="text/css" rel="stylesheet" href="'+chrome.extension.getURL('css/style.css')+'" />');
+	$('head').append('<link type="text/css" rel="stylesheet" href="'+chrome.extension.getURL('assets/css/style.css')+'" />');
 
 })();

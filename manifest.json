@@ -1,13 +1,13 @@
 {
 	"name": "TextPaste",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"manifest_version": 2,
 	
 	"description": "TextPaste lets you create, edit and manage predefined text templates or code snippets (like a forum signature), which can be pasted into a textarea with a single click",
 	"icons" : {
-		"16"	:	"img/icon16.png",
-  		"48"	:	"img/icon48.png",
-  		"128"	:	"img/icon128.png"
+		"16"	:	"assets/img/icon16.png",
+  		"48"	:	"assets/img/icon48.png",
+  		"128"	:	"assets/img/icon128.png"
 	},
 	
 	"homepage_url" : "http://infuse.at",
@@ -18,15 +18,20 @@
 			"http://themeshift.com/topic/*",
 			"http://support.themeshift.com/*",
 			"http://support.themeshift.com/forum/*",
-			"http://support.themeshift.com/topic/*"
+			"http://support.themeshift.com/topic/*",
+			"http://wpcasa.com/forum/*",
+			"http://wpcasa.com/topic/*",
+			"http://support.wpcasa.com/*",
+			"http://support.wpcasa.com/forum/*",
+			"http://support.wpcasa.com/topic/*"
 		],
-		"js": [ "js/jquery.js", "js/script.js" ],
+		"js": [ "assets/js/jquery.js", "assets/js/script.js" ],
 		"matches": [ "http://*/*", "https://*/*" ],
 		"run_at": "document_idle"
 	} ],
 	"web_accessible_resources": [
-		"img/icon-paste.png",
-		"img/icon-edit.png",
-		"css/style.css"
+		"assets/img/icon-paste.png",
+		"assets/img/icon-edit.png",
+		"assets/css/style.css"
 	]   
 }

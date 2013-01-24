@@ -235,7 +235,6 @@
 }
 
 #canlist{
-	max-height: 300px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	margin:0px !important;
