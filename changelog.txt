@@ -8,7 +8,7 @@ Legend:
  
 
  ------- 1.2.0 [24-01-2013] -----------
-
++ added support for wpCasa Forum/Threads
 ^ moved assets (css, images, js) to folder /assets
 ^ updated paths in manifest.json and /assets/js/script.js according to the new file locations
 # fixed issue #1 (max-height is causing a scrollbar on the list) by removing the max-height entirely
