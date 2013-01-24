@@ -7,8 +7,8 @@
  info@infuse.at
  http://infuse.at
 
- 2012-11-16
- v1.0
+ 2013-01-24
+ v1.2.0
  
 *************************************************************************/
 
@@ -84,11 +84,11 @@
 	if(canObject === null || canObject === '{}' || canObject == '' ){
 		cans = {
 			'Signature' : {
-				'text' 	: 'If you have any further questions, feel free to post them here.<br><br>Best Regards,<br>Name [ThemeShift]',
+				'text' 	: 'If you have any further questions, feel free to post them here.<br><br>Best Regards,<br>Name [Company]',
 				'cat'	: 'text'
 			},
 			'Major Customization' : {
-				'text'	: 'Unfortunately this is not possible by default and would require a major theme customization.<br>However, if you are in the need of this particular functionality/feature/modification I can offer my freelance services.<br><br>Please send me an e-mail at joe[at]themeshift.com with all the details and I will then send you my offer.<br>Alternative you can visit http://themeshift.com/tweaky and post your job there.',
+				'text'	: 'Unfortunately this is not possible by default and would require a major theme customization.<br>However, if you are in the need of this particular functionality/feature/modification I can offer you our <a href="http://support.NAME.com/customizations/">customization service</a>, which will be glad to take on this job for you and modify everything to your likings.<br><br>',
 				'cat'	: 'text'
 			},
 			'Custom Background' : {
@@ -314,7 +314,7 @@
 		});
 
 		//Edit Can Function
-		$('.cankey-edit').live( 'click', function(e){
+		$('.cankey-edit').on( 'click', function(e){
 			e.preventDefault();
 			canKey = $(this).attr('data-key');
 			$canEditor.find('#cankey-editor-key').val(canKey);
@@ -327,7 +327,7 @@
 		});
 
 		//Delete Can Function
-		$('.cankey-remove').live( 'click', function(e){
+		$('.cankey-remove').on( 'click', function(e){
 			e.preventDefault();
 			var key = $(this).parent().attr('data-key');
 	
