@@ -1,0 +1,17 @@
+------- 1.3.0 [22-03-2013] -----------
+
+* reworked layout - now with 3-columns, more space for more templates
+* added categories for links and plugins
+* added badges for better overview
+* moved button to the editor toolbar
+* updated jquery to 1.9.1
+
+
+
+------- 1.2.0 [24-01-2013] -----------
+* added support for wpCasa Forum/Threads
+* moved assets (css, images, js) to folder /assets
+* updated paths in manifest.json and /assets/js/script.js according to the new file locations
+* updated jquery from 1.8.2 to 1.9.0
+* fixed issue #1 (max-height is causing a scrollbar on the list) by removing the max-height entirely
+* fixed incompatibility bug with jQuery 1.9.0 (.live() = .on())

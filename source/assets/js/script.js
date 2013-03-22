@@ -58,8 +58,8 @@
 	
 	
 	function canEntry(key, val, cat){
-		return $('<li class="cankey-op" data-key="'+key+'" data-cat="'+cat+'" > '+
-					'<a href="#" class="can-keyname">'+key+'</a> '+
+		return $('<li class="cankey-op" data-key="'+key+'" data-cat="'+cat+'" title="'+key+'"> '+
+					'<a href="#" class="can-keyname"><span class="canbadge canbadge-'+cat+'">'+cat+'</span><span class="cantitle">'+key+'</span></a> '+
 					'<span class="cantext" >'+val+'</span> '+
 					'<a href="#" class="cankey-remove" title="Delete Can">&times;</a> '+
 					'<a href="#" data-key="'+key+'" class="cankey-edit" title="Edit Can"><img src="'+chrome.extension.getURL('assets/img/icon-edit.png')+'" title="Edit" alt="edit" /></a> '+
@@ -209,7 +209,7 @@
 //			$cancontainer.addClass('item-comments').insertBefore($replyBox);
 //		}
 //		else $cancontainer.insertAfter($replyBox);
-		$cancontainer.insertAfter($replyBox);
+		$cancontainer.insertBefore('.quicktags-toolbar input:first');
 
 		//Build the Editor	
 		var $canEditor = $('<div class="cankey-editor">'+
@@ -218,7 +218,9 @@
 									'<textarea id="cankey-editor-val" placeholder="Insert Text here"></textarea> '+
 									'<select id="cankey-editor-cat">'+
 										'<option>text</option>'+
-										'<option>snippets</option>'+
+										'<option>link</option>'+
+										'<option>plugin</option>'+
+										'<option>snippet</option>'+
 									'</select>'+
 									'<input type="submit" value="Save" id="cankey-editor-save" /> '+
 								'</form> '+
@@ -253,23 +255,41 @@
 		});
 		$canbuttons.append($canAllButton);
 
-		//Forum Only Buttons
-		var $canForumButton = $('<a href="#" title="Show only text templates">Text</a>');
-		$canForumButton.click(function(e){
+		//Text Only Buttons
+		var $canTextButton = $('<a href="#" title="Show only text templates">Text</a>');
+		$canTextButton.click(function(e){
 			e.preventDefault();
 			$cancontents.find('li').slideUp();
 			$cancontents.find('li[data-cat="text"]').stop().slideDown();
 		});
-		$canbuttons.append($canForumButton);
-
-		//Comment Only Button
-		var $canCommentButton = $('<a href="#" title="Show only code snippets">Snippets</a>');
-		$canCommentButton.click(function(e){
+		$canbuttons.append($canTextButton);
+		
+		//Links Only Buttons
+		var $canLinkButton = $('<a href="#" title="Show only links">Links</a>');
+		$canLinkButton.click(function(e){
 			e.preventDefault();
 			$cancontents.find('li').slideUp();
-			$cancontents.find('li[data-cat="snippets"]').stop().slideDown();
+			$cancontents.find('li[data-cat="link"]').stop().slideDown();
 		});
-		$canbuttons.append($canCommentButton);
+		$canbuttons.append($canLinkButton);
+		
+		//Plugins Only Buttons
+		var $canPluginButton = $('<a href="#" title="Show only links">Plugin</a>');
+		$canPluginButton.click(function(e){
+			e.preventDefault();
+			$cancontents.find('li').slideUp();
+			$cancontents.find('li[data-cat="plugin"]').stop().slideDown();
+		});
+		$canbuttons.append($canPluginButton);
+
+		//Snippets Only Button
+		var $canSnippetButton = $('<a href="#" title="Show only code snippets">Snippets</a>');
+		$canSnippetButton.click(function(e){
+			e.preventDefault();
+			$cancontents.find('li').slideUp();
+			$cancontents.find('li[data-cat="snippet"]').stop().slideDown();
+		});
+		$canbuttons.append($canSnippetButton);
 
 		//Add Buttons
 		$canpanel.append($canbuttons);
