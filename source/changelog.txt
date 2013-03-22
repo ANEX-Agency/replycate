@@ -12,6 +12,16 @@
 * added support for wpCasa Forum/Threads
 * moved assets (css, images, js) to folder /assets
 * updated paths in manifest.json and /assets/js/script.js according to the new file locations
+* fixed incompatibility bug with jQuery 1.9.0 (.live() = .on())
+
+
+
+------- 1.1.0 [22-01-2013] -----------
 * updated jquery from 1.8.2 to 1.9.0
 * fixed issue #1 (max-height is causing a scrollbar on the list) by removing the max-height entirely
-* fixed incompatibility bug with jQuery 1.9.0 (.live() = .on())
+
+
+
+------- 1.0.0 [22-11-2012] -----------
+* Initial Release
+

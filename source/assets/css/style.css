@@ -8,10 +8,10 @@
 
 #cancontents {
 	width: 600px;
-	z-index:10;
+	z-index: 10;
 }
 
-#cancontainer #cancontents ul li{
+#cancontainer #cancontents ul li {
 	width: 200px;
 	height: 48px;
 	float: left;
@@ -20,34 +20,29 @@
 	position: relative;
 	border-top: 1px solid #191919;
 	box-shadow: inset 0px 1px 1px rgba(200, 200, 200, .1);
-	
 	background: #202020;
 	box-sizing: border-box;
 }
 
-#cancontainer #cancontents ul li:first-child{}
-#cancontainer #cancontents ul li:last-child{}
+#cancontainer #cancontents ul li:first-child {}
+#cancontainer #cancontents ul li:last-child {}
 
-#cancontainer #cancontents ul li:hover{
-	background: #262626;
-}
+#cancontainer #cancontents ul li:hover { background: #262626; }
 
 #cancontainer #cancontents ul li a {
 	color: #f5f5f5;
 	text-shadow: 0px -1px 1px #000;
-	display:block;
-	margin:0 !important;
-	text-transform:none;
-	font-size:12px;
+	display: block;
+	margin: 0 !important;
+	text-transform: none;
+	font-size: 12px;
 	line-height: 22px;
 	text-decoration: none;
 	white-space: nowrap;
 	overflow: hidden;
 }
 
-#cancontainer #cancontents ul li a:hover{
-	text-decoration: none !important;
-}
+#cancontainer #cancontents ul li a:hover { text-decoration: none !important; }
 
 #cancontainer #cancontents ul li .canbadge {
 	padding: 2px 4px;
@@ -57,44 +52,47 @@
 	text-shadow: none;
 }
 
-#cancontainer #cancontents ul li .canbadge.canbadge-text {background: #F33;}
-#cancontainer #cancontents ul li .canbadge.canbadge-link {background: #06F;}
-#cancontainer #cancontents ul li .canbadge.canbadge-snippet {background: #0CC;}
-#cancontainer #cancontents ul li .canbadge.canbadge-plugin {background: #339;}
+#cancontainer #cancontents ul li .canbadge.canbadge-text { background: #F33; }
+
+#cancontainer #cancontents ul li .canbadge.canbadge-link { background: #06F; }
+
+#cancontainer #cancontents ul li .canbadge.canbadge-snippet { background: #0CC; }
+
+#cancontainer #cancontents ul li .canbadge.canbadge-plugin { background: #339; }
 
 #cancontainer #cancontents ul li .cantitle {
 	display: block;
 	margin-top: -4px;
 }
 
-#cancontainer #cancontents ul li a img{
-	padding:0;
+#cancontainer #cancontents ul li a img {
+	padding: 0;
 	box-shadow: none;
 }
-#cancontainer.item-comments{
+
+#cancontainer.item-comments {
 	position: absolute;
 	width: 200px;
 	z-index: 100;
 	bottom: 40px;
 }
+
 #canbutton {
 	width: 24px;
 	height: 12px;
 	padding: 5px 0;
 	display: inline-block;
-	position:relative;
-	
+	position: relative;
 	text-align: center;
-	
 	border: 1px solid #c3c3c3;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	background: #eee;
-	background-image: -webkit-gradient(linear,left bottom,left top,from(#e3e3e3),to(#fff));
-	background-image: -webkit-linear-gradient(bottom,#e3e3e3,#fff);
-	background-image: -moz-linear-gradient(bottom,#e3e3e3,#fff);
-	background-image: -o-linear-gradient(bottom,#e3e3e3,#fff);
-	background-image: linear-gradient(to top,#e3e3e3,#fff);
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#e3e3e3), to(#fff));
+	background-image: -webkit-linear-gradient(bottom, #e3e3e3, #fff);
+	background-image: -moz-linear-gradient(bottom, #e3e3e3, #fff);
+	background-image: -o-linear-gradient(bottom, #e3e3e3, #fff);
+	background-image: linear-gradient(to top, #e3e3e3, #fff);
 }
 
 #canbutton:hover {
@@ -102,26 +100,24 @@
 	background: #ddd;
 }
 
-#canbutton:active {
-	top: 0;
+#canbutton:active { top: 0; }
+
+#canbutton img {
+	width: 9px;
+	padding: 0;
+	margin: 1px auto;
 }
 
-#canbutton img{
-	padding:0;
-}
-.cantip{
+.cantip {
 	width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-
-    border-top: 6px solid #202020;
-    
-    position: absolute;
-    bottom: -6px;
-    left: 243px;
-    
-    z-index: 20;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #202020;
+	position: absolute;
+	bottom: -6px;
+	left: 243px;
+	z-index: 20;
 }
 
 .cankey-remove,
@@ -145,45 +141,41 @@
 	right: 3px;
 }
 
-.cankey-editor{
-	position:absolute;
-	left:100%;
+.cankey-editor {
+	position: absolute;
+	left: 100%;
 	bottom: 0px;
-	display:none;
-	
+	display: none;
 	padding: 10px;
-	
 	background: #202020;
 }
 
-.cankey-editor textarea{
-	padding:8px !important;
-	width:300px !important;
+.cankey-editor textarea {
+	padding: 8px !important;
+	width: 300px !important;
 	min-height: 167px;
 	max-height: 400px;
-	
-	display:block;
-	border-radius:0;
+	display: block;
+	border-radius: 0;
 	margin: 10px 0;
 }
-.cankey-editor input[type='text']{
+
+.cankey-editor input[type='text'] {
 	width: 280px !important;
 	padding: 10px !important;
 	margin: 0 0 5px 0 !important;
 	border: none !important;
-	float:left;
+	float: left;
 	line-height: 16px !important;
-	
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
-	
 	border-radius: 0;
-	
 }
-.cankey-editor input[type='text']:not(:focus){
+
+.cankey-editor input[type='text']:not(:focus) {
 	background: transparent;
 	border: none;
 	padding-left: 0px !important;
@@ -192,43 +184,43 @@
 	font-weight: bold;
 }
 
-.cankey-editor select#cankey-editor-cat{
-	width:auto !important;
-	display:block;
-	float:left;
-	border-radius:0;
+.cankey-editor select#cankey-editor-cat {
+	width: auto !important;
+	display: block;
+	float: left;
+	border-radius: 0;
+	text-transform: capitalize;
 }
 
-.cankey-editor input[type="submit"]{
+.cankey-editor input[type="submit"] {
 	width: 100px;
 	height: 28px;
-	float:right;
-	margin-right:0;
+	float: right;
+	margin-right: 0;
 	color: #EEE;
 	line-height: 20px;
 	background: #FF4D4D;
-	box-shadow:inset 0px 1px 1px rgba(255,255,255,.3);
-	text-shadow:0px -1px 1px rgba(0, 0, 0, .2);
+	box-shadow: inset 0px 1px 1px rgba(255,255,255,.3);
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, .2);
 	border: 1px solid #901B09;
 	border-radius: 0;
 }
 
-.cankey-editor input[type="submit"]:hover{
+.cankey-editor input[type="submit"]:hover {
 	border: 1px solid #901B09;
 	background: #FF6C6C;
 }
 
-#can-close-editor{
-	color:#fff;
-	text-decoration:none;
+#can-close-editor {
+	color: #fff;
+	text-decoration: none;
 	/*position: absolute;
 	right: 5px;
 	bottom: 5px;*/
-	float:right;
+	float: right;
 }
 
-
-#canpanel{
+#canpanel {
 	display: none;
 	position: absolute;
 	bottom: 150%;
@@ -236,14 +228,12 @@
 	background: #222;
 }
 
-.can-buttons{
+.can-buttons { }
 
-}
 .can-buttons a {
 	display: inline-block;
 	margin: 0px 2px 2px 1px !important;
 	padding: 5px 7px;
-	
 	color: #CCC;
 	font-size: 12px;
 	line-height: 30px;
@@ -251,15 +241,11 @@
 	text-decoration: none;
 }
 
-.can-buttons a:hover{
-	text-decoration:none !important;
-}
+.can-buttons a:hover { text-decoration: none !important; }
 
-.can-buttons a:active {top: 0;}
+.can-buttons a:active { top: 0; }
 
-.can-buttons #can-new {
-	float: right;
-}
+.can-buttons #can-new { float: right; }
 
 /*
 #can-new{
@@ -274,29 +260,28 @@
 	color:#fff;
 }
 */
-.can-keyname{
-	padding-right:40px;
-}
 
-#canlist{
+
+.can-keyname { padding-right: 40px; }
+
+#canlist {
 	overflow-y: auto;
 	overflow-x: hidden;
-	margin:0px !important;
+	margin: 0px !important;
 }
 
-.cankey-op .cantext{
-	display:none;
+.cankey-op .cantext { display: none; }
+
+#can_previewbox {
+	display: none;
+	width: 200px;
 }
 
-#can_previewbox{
-	display:none;
-	width:200px;
-}
-#can_previewbox textarea{
-	border:none;
-	font-family:Arial, Helvetica, sans-serif;
+#can_previewbox textarea {
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-label[for="bbp_reply_content"] {float: left;}
+label[for="bbp_reply_content"] { float: left; }
 
-.quicktags-toolbar input {margin: 0 1px !important;}
+.quicktags-toolbar input { margin: 0 1px !important; }
