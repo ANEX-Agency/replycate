@@ -9,6 +9,7 @@ Features
 =========
 
 - Add Unlimited Text Templates within a 3 Column Layout
+- Reorder Text Templates with Drag & Drop
 - Categorize them in 'Text', 'Links', 'Plugins' and 'Snippets'
 - Category Badges for better Overview
 - Live Filter

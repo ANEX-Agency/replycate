@@ -188,8 +188,9 @@
 	width: auto !important;
 	display: block;
 	float: left;
+	margin: 5px 0 0 0 !important;
 	border-radius: 0;
-	text-transform: capitalize;
+	text-transform: capitalize !important;
 }
 
 .cankey-editor input[type="submit"] {
