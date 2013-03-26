@@ -1,6 +1,6 @@
 {
 	"name": "TextPaste",
-	"version": "1.4.0",
+	"version": "1.4.5",
 	"manifest_version": 2,
 	
 	"description": "TextPaste lets you create, edit and manage predefined text templates or code snippets (like a forum signature), which can be pasted into a textarea with a single click",
@@ -9,6 +9,12 @@
   		"48"	:	"assets/img/icon48.png",
   		"128"	:	"assets/img/icon128.png"
 	},
+	
+//	"browser_action":	{
+//		"default_icon": "assets/img/icon48.png"
+//	},
+	
+//	"options_page": "options.html",
 	
 	"homepage_url" : "http://infuse.at",
 
@@ -23,9 +29,10 @@
 			"http://wpcasa.com/topic/*",
 			"http://support.wpcasa.com/*",
 			"http://support.wpcasa.com/forum/*",
-			"http://support.wpcasa.com/topic/*"
+			"http://support.wpcasa.com/topic/*",
+			"http://themeforest.net/forums/*"
 		],
-		"js": [ "assets/js/jquery.js", "assets/js/jquery-ui.js", "assets/js/jquery.cookie.js", "assets/js/script.js" ],
+		"js": [ "assets/js/jquery.min.js", "assets/js/jqueryui.min.js", "assets/js/jquery.cookie.js", "assets/js/script.js" ],
 		"matches": [ "http://*/*", "https://*/*" ],
 		"run_at": "document_idle"
 	} ],

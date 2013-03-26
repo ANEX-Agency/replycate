@@ -1,3 +1,12 @@
+------- 1.4.1 [26-03-2013] -----------
+
+* reworked layout - now with 4-columns
+* fixed css overflow bug which has caused TextPaste to be hidden on some parts
+* reworked default text templates
+* minor changes to the file structure
+
+
+
 ------- 1.4.0 [25-03-2013] -----------
 
 * added drag & drop functionality

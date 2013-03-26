@@ -1,3 +1,5 @@
+#page.site {overflow: visible;}
+
 #cancontainer {
 	float: left;
 	position: relative;
@@ -7,7 +9,7 @@
 }
 
 #cancontents {
-	width: 600px;
+	width: 800px;
 	z-index: 10;
 }
 
@@ -19,7 +21,8 @@
 	margin: 0 !important;
 	position: relative;
 	border-top: 1px solid #191919;
-	box-shadow: inset 0px 1px 1px rgba(200, 200, 200, .1);
+	border-left: 1px solid #191919;
+	box-shadow: inset 1px 1px 1px rgba(200, 200, 200, .1);
 	background: #202020;
 	box-sizing: border-box;
 }
@@ -229,7 +232,9 @@
 	background: #222;
 }
 
-.can-buttons { }
+.can-buttons {
+	padding: 0 5px;
+}
 
 .can-buttons a {
 	display: inline-block;
@@ -286,3 +291,46 @@
 label[for="bbp_reply_content"] { float: left; }
 
 .quicktags-toolbar input { margin: 0 1px !important; }
+
+
+
+
+
+
+
+
+#options .block.flex {width: 70%; float: none; min-width: 960px; padding: 0 10px; margin: auto;}
+
+
+#options #header {position: absolute; top: 0; z-index: 1000000;}
+
+#options #body {width: 100%; height: 100%;}
+#options #body .fluid {width: 100%; min-height: 250px; padding: 150px 0 100px 0;}
+
+#options #body .main {width: 62%; float: left;}
+#options #body .aside {width: 32%; float: right;}
+
+#options #body .header {padding: 10px 0; margin: 10px 0;}
+#options #body .header h3 {border-bottom: 1px solid #333;}
+#options #body .header h3 span {display: block; padding: 10px 0; border-bottom: 1px solid #111;}
+
+#options .aside .body {padding: 0;}
+
+#options .aside li {margin: 0 0 35px 0;}
+#options .aside li h4 {margin: 0 0 20px 0;}
+
+/* FOOTER SECTION >> GLOBAL */
+#options #footer {width: 100%; height: 30px; position: fixed; bottom: 0; z-index: 10000000;}
+#options #footer .fluid {height: 200px; padding: 0;}
+
+#options #footer .fixed {width: 100%;}
+
+#options #footer .copyright {}
+
+#options #footer .copyright p {line-height: 30px;}
+
+#options #footer p {margin: 0;}
+#options .quicklink.navi {width: auto; float: right;}
+#options .quicklink.navi li {float: left; margin: 0 10px; line-height: 30px;}
+#options .quicklink.navi li:last-child {margin-right: 0;}
+

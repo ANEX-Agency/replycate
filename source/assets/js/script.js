@@ -7,13 +7,30 @@
  info@infuse.at
  http://infuse.at
 
- 2013-01-24
- v1.2.0
+ 2013-03-26
+ v1.4.5
  
 *************************************************************************/
 
 
+//(function($) {
+//	var columns = localStorage["pasteroid_columns"];
+//	
+//	if(columns == 2) {
+//		$('#cancontents').css('width', '400px');
+//	} else if(columns == 3) {
+//		$('#cancontents').css('width', '600px');
+//	} else if(columns == 4) {
+//		$('#cancontents').css('width', '800px');
+//	} else {
+//		return;
+//	}
+//})(jQuery);
+
+
+
 (function () {
+	
 
 	// Store item in local storage:
 	function setItem(key, value) {
@@ -93,8 +110,24 @@
 			},
 			'Custom Background' : {
 				'text'	: '<pre>body {background: #222;}</pre>',
-				'cat'	: 'snippets'
+				'cat'	: 'snippet'
+			},
+			'Plugins Check' : {
+				'text'	: 'Please deactivate all your plugins and see if the issue persists. If it is gone you can activate one plugin after the next always followed by a quick check if the issue returns. That way you can identify the culprit.',
+				'cat'	: 'text'
+			},
+			'CSS Customization' : {
+				'text'	: 'please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.contact-link {display: none;}</pre>',
+				'cat'	: 'text'
+			},
+			'WordPress Codex' : {
+				'text'	: '<a href="http://codex.wordpress.org">WordPress Codex</a>',
+				'cat'	: 'link'
 			}
+			
+			
+			
+			
 		};
 	}
 	//Parse the cans into a JSON object
@@ -210,6 +243,7 @@
 //		}
 //		else $cancontainer.insertAfter($replyBox);
 		$cancontainer.insertBefore('.quicktags-toolbar input:first');
+//		$cancontainer.insertBefore($replyBox);
 
 		//Build the Editor	
 		var $canEditor = $('<div class="cankey-editor">'+
@@ -222,6 +256,7 @@
 										'<option>plugin</option>'+
 										'<option>snippet</option>'+
 									'</select>'+
+									//'<input type="text" id="cankey-editor-tags" placeholder="Click to add tags" />'+ for version 1.5
 									'<input type="submit" value="Save" id="cankey-editor-save" /> '+
 								'</form> '+
 							'</div>');
@@ -241,6 +276,7 @@
 			$canEditor.find('#cankey-editor-key').val('');
 			$canEditor.find('#cankey-editor-val').val('');
 			$canEditor.find('#cankey-editor-cat').val('');
+			//$canEditor.find('#cankey-editor-tags').val(''); for version 1.5
 			$canEditor.show('normal');
 
 			return false;
@@ -340,6 +376,7 @@
 			$canEditor.find('#cankey-editor-key').val(canKey);
 			$canEditor.find('#cankey-editor-val').val(cans[canKey]['text']);
 			$canEditor.find('#cankey-editor-cat').val(cans[canKey]['cat']);
+			//$canEditor.find('#cankey-editor-tags').val(cans[canKey]['tags']); for version 1.5
 			$canEditor.show('normal');
 
 			return false;
@@ -368,6 +405,7 @@
 			var key = $('#cankey-editor-key').val();
 			var val = $('#cankey-editor-val').val();
 			var cat = $('#cankey-editor-cat').val();
+			//var tags = $('#cankey-editor-tag').val(); for version 1.5
 	
 			if(!key || key == ''){
 				alert('You must enter a name for your can');
@@ -387,6 +425,7 @@
 			cans[key] = {
 				'text' 	: val,
 				'cat'	: cat
+				//'tags'	: tags for version 1.5
 			};
 			saveCans();
 			$canEditor.toggle('normal');
