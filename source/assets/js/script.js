@@ -8,7 +8,7 @@
  http://infuse.at
 
  2013-03-26
- v1.4.5
+ v1.4.6
  
 *************************************************************************/
 
@@ -310,7 +310,7 @@
 		$canbuttons.append($canLinkButton);
 		
 		//Plugins Only Buttons
-		var $canPluginButton = $('<a href="#" title="Show only links">Plugin</a>');
+		var $canPluginButton = $('<a href="#" title="Show only plugins">Plugin</a>');
 		$canPluginButton.click(function(e){
 			e.preventDefault();
 			$cancontents.find('li').slideUp();

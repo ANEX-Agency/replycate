@@ -1,3 +1,10 @@
+------- 1.4.6 [26-03-2013] -----------
+
+* minor css changes
+* fixed title for category filter
+
+
+
 ------- 1.4.5 [26-03-2013] -----------
 
 * reworked layout - now with 4-columns

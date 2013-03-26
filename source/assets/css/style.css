@@ -9,12 +9,12 @@
 }
 
 #cancontents {
-	width: 800px;
+	width: 840px;
 	z-index: 10;
 }
 
 #cancontainer #cancontents ul li {
-	width: 200px;
+	width: 25%;
 	height: 48px;
 	float: left;
 	padding: 4px 30px 4px 10px;
@@ -239,7 +239,7 @@
 .can-buttons a {
 	display: inline-block;
 	margin: 0px 2px 2px 1px !important;
-	padding: 5px 7px;
+	padding: 7px 7px 0;
 	color: #CCC;
 	font-size: 12px;
 	line-height: 30px;

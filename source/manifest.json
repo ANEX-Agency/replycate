@@ -1,6 +1,6 @@
 {
 	"name": "TextPaste",
-	"version": "1.4.5",
+	"version": "1.4.6",
 	"manifest_version": 2,
 	
 	"description": "TextPaste lets you create, edit and manage predefined text templates or code snippets (like a forum signature), which can be pasted into a textarea with a single click",
