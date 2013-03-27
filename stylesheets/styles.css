@@ -745,6 +745,10 @@ dt {
   font-size: 14px;
   display: inline-block;
   text-align: center;
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  -ms-transition: all .1s linear;
+  transition: all .1s linear;
 }
 #header nav li a:hover {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #C40000), color-stop(100%, #6C1515));
@@ -753,8 +757,8 @@ dt {
   background: -o-linear-gradient(#C40000, #6C1515);
   background: -ms-linear-gradient(#C40000, #6C1515);
   background: linear-gradient(#C40000, #6C1515);
-  background-color: #6C1515;
-  border: 1px solid #C40000;
+  background-color: #C40000;
+  border: 1px solid #6C1515;
   -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
   -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
   -o-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
