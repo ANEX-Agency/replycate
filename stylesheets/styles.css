@@ -574,12 +574,12 @@ h3 {
 }
 
 a {
-  color: #ffcc00;
+  color: #FF3333;
   font-weight: 400;
   text-decoration: none;
 }
 a:hover {
-  color: #ffeb9b;
+  color: #FF4646;
 }
 
 a small {
