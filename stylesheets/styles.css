@@ -532,7 +532,7 @@ body {
   padding: 0px 0 20px 0px;
   margin: 0px;
   font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f0e7d5;
+  color: #999;
   font-weight: normal;
   background: #222;
   background-attachment: fixed !important;
@@ -805,7 +805,7 @@ section #title h1 {
   line-height: 36px;
 }
 section #title p {
-  color: #d7cfbe;
+  color: #999;
   font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-size: 18px;
