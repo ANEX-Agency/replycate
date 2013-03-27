@@ -14,3 +14,8 @@ Features
 - Category Badges for better Overview
 - Live Filter
 - Works on ThemeShift and wpCasa
+
+Screenshot
+=========
+
+<img src="http://d.pr/i/stKx+">
