@@ -540,7 +540,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #333;
-  margin: 0 0 10px;
+  margin: 0 0 30px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
 }
@@ -607,6 +607,13 @@ strong {
 
 section img {
   max-width: 100%;
+  padding: 5px;
+  background: #FFF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #DDD;
 }
 
 blockquote {
