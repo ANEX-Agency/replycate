@@ -78,8 +78,10 @@
 		return $('<li id="'+key.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-').toLowerCase()+'" class="cankey-op" data-key="'+key+'" data-cat="'+cat+'" title="'+key+'"> '+
 					'<a href="#" class="can-keyname"><span class="canbadge canbadge-'+cat+'">'+cat+'</span><span class="cantitle">'+key+'</span></a> '+
 					'<span class="cantext" >'+val+'</span> '+
+					'<span class="canactions"> '+
 					'<a href="#" class="cankey-remove" title="Delete Can">&times;</a> '+
 					'<a href="#" data-key="'+key+'" class="cankey-edit" title="Edit Can"><img src="'+chrome.extension.getURL('assets/img/icon-edit.png')+'" title="Edit" alt="edit" /></a> '+
+					'</span> '+
 				'</li>');
 	}
 

@@ -1,3 +1,9 @@
+------- 1.4.7 [24-04-2013] -----------
+
+* modified can actions (edit, delete) to display only on mouse over
+
+
+
 ------- 1.4.6 [26-03-2013] -----------
 
 * minor css changes
