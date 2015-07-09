@@ -12,6 +12,10 @@
   		"64"	:	"assets/img/icon64.png",
   		"128"	:	"assets/img/icon128.png"
 	},
+
+	"permissions": [
+		"storage"
+    ],
 	
 //	"options_page": "options/index.html",
 	
@@ -34,7 +38,7 @@
 		"js": [
 			"assets/js/jquery.min.js",
 			"assets/js/jqueryui.min.js",
-			"assets/js/jquery.cookie.js",
+			"assets/js/underscore.min.js",
 			"assets/js/script.js"
 		],
 		"matches": [
