@@ -14,6 +14,11 @@
 
 (function () {
 
+	var $doc = $(document);
+
+	// set the list selector
+	var setSelector = ".pasteroid-panel ul";
+
 	var storageArea = chrome.storage.sync;
 
 
@@ -57,24 +62,25 @@
 				'</li>');
 	}
 
-function createUUID() {
-    // http://www.ietf.org/rfc/rfc4122.txt
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 36; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-    }
-    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
-    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
-    s[8] = s[13] = s[18] = s[23] = "-";
+	function createUUID() {
+	    // http://www.ietf.org/rfc/rfc4122.txt
+	    var s = [];
+	    var hexDigits = "0123456789abcdef";
+	    for (var i = 0; i < 36; i++) {
+	        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+	    }
+	    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+	    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+	    s[8] = s[13] = s[18] = s[23] = "-";
 
-    var uuid = s.join("");
-    return uuid;
-}
+	    var uuid = s.join("");
+	    return uuid;
+	}
 
 	var cans = {};
 
 	function saveOrder() {
+
 		var order = $(setSelector).sortable("toArray");
 		setItem('order', order, function() {
 			console.log("successfully updated");
@@ -89,78 +95,66 @@ function createUUID() {
 			console.log("cans saved");
 		});
 	}
-
-	getItem('order', function(order) {
-
-		if(!order) order = [];
-
-		getItem('templates', function(canObject)
-		{
-			var canKey = '';
-			
-			var typeCat = '';
-
-			//Load default cans if none exist
-			if(canObject === undefined || canObject === {}) {
+	
+	function construct() {
 				
-				cans = {
-					
-					'3d88e69c-207b-4ab4-8d27-70c45cead285' : {
-						'title' : 'Signature',
-						'text' 	: 'If you have any further questions, feel free to post them here.<br><br>Best Regards,<br>Name [Company]',
-						'cat'	: 'text'
-					},
-					'c6401ef1-7b21-462b-9412-d13d04b4215c' : {
-						'title' : 'Customization',
-						'text'	: 'Unfortunately this is not possible by default and would require a major theme customization.<br>However, if you are in the need of this particular functionality/feature/modification I can offer you our <a href="http://support.NAME.com/customizations/">customization service</a>, which will be glad to take on this job for you and modify everything to your likings.<br><br>',
-						'cat'	: 'text'
-					},
-					'faeee617-b385-4886-8ef7-d146771d7919' : {
-						'title' : 'Custom Background',
-						'text'	: '<pre>body {background: #222;}</pre>',
-						'cat'	: 'snippet'
-					},
-					'e5d50078-4268-414a-98ac-8cd334946fe9' : {
-						'title' : 'Plugins Check',
-						'text'	: 'Please deactivate all your plugins and see if the issue persists. If it is gone you can activate one plugin after the next always followed by a quick check if the issue returns. That way you can identify the culprit.',
-						'cat'	: 'text'
-					},
-					'57d099e9-c423-4eb6-bae1-5c840785226c' : {
-						'title' : 'CSS Customization',
-						'text'	: 'please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.contact-link {display: none;}</pre>',
-						'cat'	: 'text'
-					},
-					'27fa1cb0-f4fa-4f32-93d0-597847ddb4c5' : {
-						'title' : 'WordPress Codex',
-						'text'	: '<a href="http://codex.wordpress.org">WordPress Codex</a>',
-						'cat'	: 'link'
-					}
-				};
+		getItem('order', function(order) {
 
-				_.each(cans, function(can, key) {
-					order.push(key);
-				});
-				
-			}
-			else
+			if(!order) order = [];
+
+			getItem('templates', function(canObject)
 			{
-				cans = canObject;
-
-
-			}
-
-
-
-
-
-
-			//Grab the existing reply box
-			
-			//Forums
-			var $replyBox = $('textarea');
-			
-			function construct() {
+				var canKey = '';
 				
+				var typeCat = '';
+
+				//Load default cans if none exist
+				if(canObject === undefined || canObject === {}) {
+					
+					cans = {
+						
+						'3d88e69c-207b-4ab4-8d27-70c45cead285' : {
+							'title' : 'Signature',
+							'text' 	: 'If you have any further questions, feel free to post them here.<br><br>Best Regards,<br>Name [Company]',
+							'cat'	: 'text'
+						},
+						'c6401ef1-7b21-462b-9412-d13d04b4215c' : {
+							'title' : 'Customization',
+							'text'	: 'Unfortunately this is not possible by default and would require a major theme customization.<br>However, if you are in the need of this particular functionality/feature/modification I can offer you our <a href="http://support.NAME.com/customizations/">customization service</a>, which will be glad to take on this job for you and modify everything to your likings.<br><br>',
+							'cat'	: 'text'
+						},
+						'faeee617-b385-4886-8ef7-d146771d7919' : {
+							'title' : 'Custom Background',
+							'text'	: '<pre>body {background: #222;}</pre>',
+							'cat'	: 'snippet'
+						},
+						'e5d50078-4268-414a-98ac-8cd334946fe9' : {
+							'title' : 'Plugins Check',
+							'text'	: 'Please deactivate all your plugins and see if the issue persists. If it is gone you can activate one plugin after the next always followed by a quick check if the issue returns. That way you can identify the culprit.',
+							'cat'	: 'text'
+						},
+						'57d099e9-c423-4eb6-bae1-5c840785226c' : {
+							'title' : 'CSS Customization',
+							'text'	: 'please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.contact-link {display: none;}</pre>',
+							'cat'	: 'text'
+						},
+						'27fa1cb0-f4fa-4f32-93d0-597847ddb4c5' : {
+							'title' : 'WordPress Codex',
+							'text'	: '<a href="http://codex.wordpress.org">WordPress Codex</a>',
+							'cat'	: 'link'
+						}
+					};
+
+					_.each(cans, function(can, key) {
+						order.push(key);
+					});
+					
+				}
+				else
+				{
+					cans = canObject;
+				}
+
 				var $container			= $('<div class="pasteroid" id="cancontainer">');
 				var $widget				= $('<div class="pasteroid-widget">' );
 				var $panel				= $('<div class="pasteroid-panel" id="canpanel">');
@@ -314,10 +308,25 @@ function createUUID() {
 				$panel.append($contents);
 				$container.append($editor);
 
-				$(document).delegate('.cankey-op', 'click', function(e){
+				var $replyBox;
+				
+				$doc.on('focus', 'textarea', function()
+				{
+					$replyBox = $(this);
+				}).on('blur', 'textarea', function()
+				{
+					$replyBox = null;
+				});
+
+				$doc.on('click', '.cankey-op', function(e){
 					e.preventDefault();
 					var key = $(this).attr('data-key');
+
+					if(!$replyBox || !$replyBox.length)
+						$replyBox = $('textarea:first');
+
 					$replyBox.val( $replyBox.val() + cans[key]['text'] );
+
 					return false;
 				});
 
@@ -331,7 +340,7 @@ function createUUID() {
 					
 				});
 				
-				$( document ).keyup( function( e ) {
+				$doc.keyup( function( e ) {
 					
 					if ( e.keyCode == 27 ) {
 						
@@ -417,6 +426,9 @@ function createUUID() {
 						'cat'	: cat
 						//'tags'	: tags for version 1.5
 					};
+
+					console.log($canlist.children().length);
+
 					save();
 					
 					$editor.toggle('normal');
@@ -424,37 +436,24 @@ function createUUID() {
 					return false;
 					
 				});
-			}
-			
-			construct();
-			
-			//Load styles
-			$('head').append('<link type="text/css" rel="stylesheet" href="' + chrome.extension.getURL('assets/css/style.css') + '" />');
-			//$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />');
-			$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css" />');
-			$('head').append('<link type="text/css" rel="stylesheet" href="//cdn.linearicons.com/free/1.0.0/icon-font.min.css" />');
+
+				$(setSelector).sortable({
+					cursor: "move",
+					handle: '.pasteroid-template-move',
+					update: saveOrder,
+				});
+			});
 		});
+
+	}
+	
+	//Load styles
+	$('head').append('<link type="text/css" rel="stylesheet" href="' + chrome.extension.getURL('assets/css/style.css') + '" />');
+	//$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />');
+	$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css" />');
+	$('head').append('<link type="text/css" rel="stylesheet" href="//cdn.linearicons.com/free/1.0.0/icon-font.min.css" />');
+
+	$(function() {
+		construct();
 	});
-
-
-
-
-// set the list selector
-var setSelector = ".pasteroid-panel ul";
-
-
-
-
-	$(function()
-	{
-		// here, we allow the user to sort the items
-		$(setSelector).sortable({
-			cursor: "move",
-			handle: '.pasteroid-template-move',
-			update: saveOrder,
-		});
-	});
-
-
-
 })();
