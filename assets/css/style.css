@@ -1,0 +1,411 @@
+/*
+ * ========================================
+ * GENERAL ================================
+ * ========================================
+ */
+
+.pasteroid a,
+.pasteroid a:hover,
+.pasteroid a:active {
+    outline: none;
+}
+
+
+/*
+ * ========================================
+ * BUTTON =================================
+ * ========================================
+ */
+
+.pasteroid .pasteroid-button {
+    width: 20px;
+    height: 20px;
+    padding: 4px 0;
+    display: inline-block;
+    color: #FFF;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    border-radius: 100%;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+}
+ 
+.pasteroid .pasteroid-button.pasteroid-button-primary {
+    width: 60px;
+    height: 60px;
+    padding: 15px 0;
+    color: #FFF;
+    font-size: 30px;
+    background: rgb(30,30,30);
+}
+
+.pasteroid .pasteroid-button.pasteroid-button-secondary {
+    width: 40px;
+    height: 40px;
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 16px;
+    line-height: 1.6;
+    background: rgb(50,50,50);
+}
+.pasteroid .pasteroid-button.pasteroid-button-tertiary {background: rgb(70,70,70);}
+
+
+.pasteroid .pasteroid-widget {width: auto; padding: 50px 20px; display: inline; position: fixed; top: 0; right: 0;}
+
+.pasteroid .pasteroid-widget .pasteroid-button[href="#add"] {
+    position: absolute;
+    top: 130px;
+    left: 30px;
+}
+
+.pasteroid .pasteroid-widget .button[href="#settings"] {
+    position: absolute;
+    top: 190px;
+    left: 30px;
+}
+
+
+/*
+ * ========================================
+ * PANEL ==================================
+ * ========================================
+ */
+
+.pasteroid .pasteroid-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: none;
+    background: rgba( 22, 22, 22, 0.9 );
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+}
+
+/*
+ * ==============================
+ * PANEL > ACTIONS ==============
+ * ==============================
+ */
+
+.pasteroid .pasteroid-actions {
+	padding: 0 5px;
+    border-bottom: 1px solid #444;
+}
+
+.pasteroid .pasteroid-actions a {
+	display: inline-block;
+	padding: 10px 10px 8px;
+	color: #CCC;
+	font-size: 12px;
+	line-height: 20px;
+	text-transform: none;
+	text-decoration: none;
+    outline: 0;
+}
+
+.pasteroid .pasteroid-actions a:hover { text-decoration: none !important; }
+
+.pasteroid .pasteroid-actions a:active { top: 0; }
+
+.pasteroid .pasteroid-actions #can-new { float: right; }
+
+
+/*
+ * ==============================
+ * PANEL > GRID =================
+ * ==============================
+ */
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li {
+	width: 50%; /* 2 in row */
+	height: 75px;
+	float: left;
+	padding: 4px 10px;
+	margin: 0 !important;
+	position: relative;
+    box-sizing: border-box;
+    transition: background .2s linear;
+}
+
+@media all and (min-width: 1024px){
+    .pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li {
+        width: 25%; /* 4 in row */
+    }
+}
+
+@media all and (min-width: 1600px){
+    .pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li {
+        width: 12.5%; /* 8 in row */
+    }
+}
+
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li:hover,
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li:active {
+    background: rgba( 70, 70, 70, .5 );
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li > a {
+	color: #f5f5f5;
+	text-shadow: 0px -1px 1px #000;
+	display: block;
+	margin: 0 !important;
+	text-transform: none;
+	font-size: 12px;
+	line-height: 20px;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li > a:hover { text-decoration: none !important; }
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li .pasteroid-template-badge {
+	padding: 3px 5px 2px;
+	text-transform: uppercase;
+	font-size: 8px;
+	line-height: 8px;
+	text-shadow: none;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-text { background: #F33; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-link { background: #06F; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-image { background: #339; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-snippet { background: #0CC; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-plugin { background: #C60; }
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-null { display: none; }
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-name {padding: 10px 40px 5px 0;}
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-title {
+	display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul {
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin: 0px !important;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-content { display: none; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-actions {
+    width: 30px;
+    height: 75px;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 2px;
+    z-index: 10;
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-actions a {
+    width: 30px;
+    height: 24px;
+    text-decoration: none;
+    line-height: 24px;
+    display: inline-block;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    border-left: 1px solid #444;
+    transition: all .2s linear;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-actions a:hover {
+    color: #EEE;
+    border-left: 1px solid #666;
+    background: #555;
+}
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-actions .pasteroid-template-move,
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-actions .pasteroid-template-edit {
+    border-bottom: 1px solid #444;
+}
+
+
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li:hover .pasteroid-template-actions {
+    opacity: 1;
+}
+
+
+
+/*
+ * ========================================
+ * EDITOR =================================
+ * ========================================
+ */
+
+.pasteroid .pasteroid-editor {
+    width: 100%;
+    height: 100%;
+	padding: 15vh 50vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+    z-index: 10000;
+	display: none;
+	background: rgba( 22, 22, 22, .9 );
+    box-sizing: border-box;
+}
+
+.pasteroid .pasteroid-editor input,
+.pasteroid .pasteroid-editor select,
+.pasteroid .pasteroid-editor textarea,
+.pasteroid .pasteroid-editor input:hover,
+.pasteroid .pasteroid-editor select:hover,
+.pasteroid .pasteroid-editor textarea:hover {
+	width: 100%;
+	padding: 10px !important;
+    margin: 0 0 3vh !important;
+    font-size: 16px !important;
+	background: #FFF;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.pasteroid .pasteroid-editor textarea {
+    min-width: 100%;
+    max-width: 100%;
+	min-height: 40vh;
+	max-height: 40vh;
+}
+
+.pasteroid .pasteroid-editor .pasteroid-editor-save {
+    width: 100%;
+    padding: 15px 0 !important;
+    height: auto;
+    
+    display: block;
+    
+	color: #EEE;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    text-transform: uppercase;
+
+	background: #FF4D4D;
+    border: 0;
+	border-radius: 0;
+    box-shadow: none;
+}
+
+.pasteroid .pasteroid-editor .pasteroid-editor-save:hover {
+    color: #FFF;
+	background: #FF6C6C;
+}
+
+.pasteroid .pasteroid-editor .pasteroid-editor-close {
+	float: right;
+	color: #FFF;
+    font-size: 20px;
+	text-decoration: none;
+	/*position: absolute;
+	right: 5px;
+	bottom: 5px;*/
+}
+
+
+
+/*
+.pasteroid .pasteroid-editor textarea {
+	padding: 10px !important;
+	width: 100%;
+    max-width: 100%;
+	min-height: 40vh;
+	max-height: 40vh;
+	display: block;
+	border-radius: 0;
+	margin: 0 !important;
+    box-sizing: border-box;
+	transition: all .2s ease-in-out;
+}
+
+.pasteroid .pasteroid-editor textarea:not(:focus) {
+	background: transparent;
+	border: none;
+	padding-left: 0px !important;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.pasteroid .pasteroid-editor input[type='text'],
+.pasteroid .pasteroid-editor input[type='text']:hover {
+	width: 100% !important;
+    height: 40px;
+	padding: 10px !important;
+	margin: 20px 0 !important;
+	border: none !important;
+	float: left;
+    background-color: #FFF;
+    background-image: none;
+	transition: all .2s ease-in-out;
+	border-radius: 0;
+    box-sizing:	border-box;
+}
+
+.pasteroid .pasteroid-editor input[type='text']:not(:focus) {
+	background: transparent;
+	border: none;
+	padding-left: 0px !important;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.pasteroid .pasteroid-editor select#cankey-editor-cat {
+	width: 100% !important;
+    height: 40px;
+    padding: 10px;
+	display: block;
+	float: left;
+	margin: 20px 0 !important;
+	border-radius: 0;
+	text-transform: capitalize !important;
+	transition: all .2s ease-in-out;
+}
+
+.pasteroid .pasteroid-editor select#cankey-editor-cat:not(:focus) {
+	background: transparent;
+	border: none;
+	padding-left: 0px !important;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+.pasteroid .pasteroid-editor #cankey-editor-save {
+    width: 100%;
+    height: auto;
+	margin: 0;
+    padding: 10px;
+    
+    display: block;
+    
+	color: #EEE;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    text-transform: uppercase;
+
+	background: #FF4D4D;
+    border: 0;
+	border-radius: 0;
+    box-shadow: none;
+
+}
+
+.pasteroid .pasteroid-editor #cankey-editor-save:hover {
+    color: #FFF;
+	background: #FF6C6C;
+}
+*/
