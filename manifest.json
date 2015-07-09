@@ -16,8 +16,8 @@
 	"permissions": [
 		"storage"
     ],
-	
-//	"options_page": "options/index.html",
+
+	"options_page": "options.html",
 	
 	"content_scripts": [ {
 //		"include_globs": [ 
@@ -51,6 +51,7 @@
 	"web_accessible_resources": [
 //		"options.html",
 		"assets/css/style.css",
-		"assets/img/icon-paste.png"
+		"assets/img/icon-paste.png",
+		"defaults.json"
 	]   
 }
