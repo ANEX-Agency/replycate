@@ -74,13 +74,9 @@ function createUUID() {
 
 	var cans = {};
 
-	// function that writes the list order to a cookie
 	function saveOrder() {
-		// save custom order to cookie
-
 		var order = $(setSelector).sortable("toArray");
-		setItem('order', order, function()
-		{
+		setItem('order', order, function() {
 			console.log("successfully updated");
 		});
 	}
@@ -94,10 +90,9 @@ function createUUID() {
 		});
 	}
 
-
-
 	getItem('order', function(order) {
-		console.log(order);
+
+		if(!order) order = [];
 
 		getItem('templates', function(canObject)
 		{
@@ -110,32 +105,41 @@ function createUUID() {
 				
 				cans = {
 					
-					'Signature' : {
+					'3d88e69c-207b-4ab4-8d27-70c45cead285' : {
+						'title' : 'Signature',
 						'text' 	: 'If you have any further questions, feel free to post them here.<br><br>Best Regards,<br>Name [Company]',
 						'cat'	: 'text'
 					},
-					'Customization' : {
+					'c6401ef1-7b21-462b-9412-d13d04b4215c' : {
+						'title' : 'Customization',
 						'text'	: 'Unfortunately this is not possible by default and would require a major theme customization.<br>However, if you are in the need of this particular functionality/feature/modification I can offer you our <a href="http://support.NAME.com/customizations/">customization service</a>, which will be glad to take on this job for you and modify everything to your likings.<br><br>',
 						'cat'	: 'text'
 					},
-					'Custom Background' : {
+					'faeee617-b385-4886-8ef7-d146771d7919' : {
+						'title' : 'Custom Background',
 						'text'	: '<pre>body {background: #222;}</pre>',
 						'cat'	: 'snippet'
 					},
-					'Plugins Check' : {
+					'e5d50078-4268-414a-98ac-8cd334946fe9' : {
+						'title' : 'Plugins Check',
 						'text'	: 'Please deactivate all your plugins and see if the issue persists. If it is gone you can activate one plugin after the next always followed by a quick check if the issue returns. That way you can identify the culprit.',
 						'cat'	: 'text'
 					},
-					'CSS Customization' : {
+					'57d099e9-c423-4eb6-bae1-5c840785226c' : {
+						'title' : 'CSS Customization',
 						'text'	: 'please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.contact-link {display: none;}</pre>',
 						'cat'	: 'text'
 					},
-					'WordPress Codex' : {
+					'27fa1cb0-f4fa-4f32-93d0-597847ddb4c5' : {
+						'title' : 'WordPress Codex',
 						'text'	: '<a href="http://codex.wordpress.org">WordPress Codex</a>',
 						'cat'	: 'link'
 					}
-					
 				};
+
+				_.each(cans, function(can, key) {
+					order.push(key);
+				});
 				
 			}
 			else
@@ -431,12 +435,6 @@ function createUUID() {
 			$('head').append('<link type="text/css" rel="stylesheet" href="//cdn.linearicons.com/free/1.0.0/icon-font.min.css" />');
 		});
 	});
-
-
-
-
-
-
 
 
 
