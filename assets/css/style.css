@@ -4,6 +4,8 @@
  * ========================================
  */
 
+.pasteroid > * {font-family: 'Open Sans' !important;}
+
 .pasteroid a,
 .pasteroid a:hover,
 .pasteroid a:active {

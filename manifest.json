@@ -20,20 +20,10 @@
 	"options_page": "options.html",
 	
 	"content_scripts": [ {
-//		"include_globs": [ 
-//			"http://wpcasa.com/forum/*",
-//			"http://wpcasa.com/topic/*",
-//			"http://support.wpcasa.com/*",
-//			"http://support.wpcasa.com/forum/*",
-//			"http://support.wpcasa.com/topic/*",
-//			"http://wpsight.com/forum/*",
-//			"http://wpsight.com/topic/*",
-//			"http://support.wpsight.com/*",
-//			"http://support.wpsight.com/forum/*",
-//			"http://support.wpsight.com/topic/*"
-//		],
 		"css": [
-//			"assets/css/style.css"
+			"assets/css/animate.css",
+			"assets/css/icons.css",
+			"assets/css/style.css"
 		],
 		"js": [
 			"assets/js/jquery.min.js",
@@ -50,8 +40,13 @@
 	
 	"web_accessible_resources": [
 //		"options.html",
-		"assets/css/style.css",
-		"assets/img/icon-paste.png",
+		"assets/css/*.css",
+		"assets/img/*.png",
+		"assets/fonts/*.eot",
+		"assets/fonts/*.svg",
+		"assets/fonts/*.ttf",
+		"assets/fonts/*.woff",
+		"assets/fonts/*.woff2",
 		"defaults.json"
 	]   
 }

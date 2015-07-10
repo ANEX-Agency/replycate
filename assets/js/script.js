@@ -216,6 +216,7 @@
 										'<option>image</option>'+
 										'<option>plugin</option>'+
 										'<option>snippet</option>'+
+										'<option>video</option>'+
 									'</select>'+
 									'<input type="submit" value="Save" id="cankey-editor-save" class="pasteroid-editor-save" /> '+
 								'</form> '+
@@ -273,6 +274,15 @@
 			$canlist.find('li[data-cat="snippet"]').stop().show();
 		});
 		$buttons.append($canSnippetButton);
+	
+		//Video Only Button
+		var $canVideoButton = $('<a href="#" class="filter" title="Show only videos" data-filter=".video">Videos</a>');
+		$canVideoButton.click(function(e){
+			e.preventDefault();
+			$canlist.find('li').hide()
+			$canlist.find('li[data-cat="video"]').stop().show();
+		});
+		$buttons.append($canVideoButton);
 	
 
 		//Add Buttons
@@ -425,7 +435,7 @@
 			return;
 
 		options = data.options;
-
+				console.log(options);
 		if('urls' in options)
 		{
 			var match = false;
@@ -444,16 +454,11 @@
 			}
 
 			if(match) {
-
-				//Load styles
-				$('head').append('<link type="text/css" rel="stylesheet" href="' + chrome.extension.getURL('assets/css/style.css') + '" />');
-				//$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />');
-				$('head').append('<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css" />');
-				$('head').append('<link type="text/css" rel="stylesheet" href="//cdn.linearicons.com/free/1.0.0/icon-font.min.css" />');
-
+				console.log(match);
 				$(function() {
 					loadData(construct);
 				});
+				
 			}
 		}
 	});
