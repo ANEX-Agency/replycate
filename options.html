@@ -2,27 +2,50 @@
 
     <head>
         <title>Pasteroid | Settings</title>
+        <link type="text/css" rel="stylesheet" href="assets/css/options.css" />
     </head>
     
     <body>
-    
-    Columns
-    <select id="pasteroid-columns">
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-    </select>
-    
-
-    <textarea id="pasteroid-urls">
-
-    </textarea>
-
-    <br>
-    <div id="status"></div>
-    <button id="save">Save</button>
+    	
+        <div class="container">
+        
+        	<header>
+                <span>Pasteroid</span>
+            	<div class="logo">
+                	<img src="assets/img/icon.png">
+                </div>
+                <span>Version 1.5</span>
+            </header>
+            
+            <!--<div class="field">
+                <label>Columns</label><span>Description</span>
+                <select id="pasteroid-columns">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>-->
+            <div class="field">
+                <label>Categories</label><span>Description</span>
+                <input type="text" id="pasteroid-categories" value="text,image,video,snippet,plugin,link
+                  b vcd,3++" />
+            </div>
+            
+            <div class="field">
+                <label>Whitelist</label><span>Enter a list of URL's on which you want use Pasteroid.</span>
+                <textarea id="pasteroid-urls"></textarea>
+            </div>
+            
+            <div class="field">
+                <input type="submit" id="save" value="Save" />
+            </div>
+            
+        </div>
+        
+        
     </body>
     
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/options.js"></script>
 
 </html>

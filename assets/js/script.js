@@ -124,8 +124,8 @@
 		});
 	}
 	
-	function construct() {
-
+	function construct( data ) {
+		
 		var canKey = '';
 		
 		var typeCat = '';
@@ -136,9 +136,9 @@
 		
 		var $buttons			= $('<div class="can-buttons pasteroid-actions">');
 		var $contents			= $('<div id="cancontents" class="pasteroid-panel-content">');
-		var $canlist 			= $('<ul id="canlist">');
+		var $list 			= $('<ul id="canlist">');
 
-		var $buttonPasteroid	= $('<a href="#pasteroid" id="canbutton" class="pasteroid-button pasteroid-button-primary animated bounceIn"><span class="lnr lnr-pointer-up"></span></a>');
+		var $buttonPasteroid	= $('<a href="#pasteroid" id="canbutton" class="pasteroid-button pasteroid-button-primary animated bounceIn"><img src="' + chrome.extension.getURL('assets/img/icon.png') + '" /></span></a>');
 		var $buttonAdd			= $('<a href="#add" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-pencil"></span></a>');
 		var $buttonSettings		= $('<a href="#settings" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-cog"></span></a>');
 
@@ -190,7 +190,7 @@
 
 		$.each(order, function(ndx, key) {
 			var can = cans[key];
-			$canlist.append(canEntry(key, can.title, can.text, can.cat));
+			$list.append(canEntry(key, can.title, can.text, can.cat));
 		});
 		
 		$('body').append($container);
@@ -198,7 +198,7 @@
 		$container.append($widget);
 		$container.append($panel);
 
-		$contents.append($canlist);
+		$contents.append($list);
 		
 		$widget.append($buttonPasteroid);
 		$widget.append($buttonAdd);
@@ -221,69 +221,42 @@
 									'<input type="submit" value="Save" id="cankey-editor-save" class="pasteroid-editor-save" /> '+
 								'</form> '+
 							'</div>');
-		
+							
 		//Show All Button
 		var $canAllButton = $('<a href="#" class="filter" title="Show all" data-filter="all">All</a>');
 		$canAllButton.click(function(e){
 			e.preventDefault();
-			$canlist.find('li').show();
+			$list.find('li').show();
 		});
 		$buttons.append($canAllButton);
-
-		//Text Only Buttons
-		var $canTextButton = $('<a href="#" class="filter" title="Show only text templates" data-filter=".text">Text</a>');
-		$canTextButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="text"]').stop().show();
-		});
-		$buttons.append($canTextButton);
 		
-		//Links Only Buttons
-		var $canLinkButton = $('<a href="#" class="filter" title="Show only links" data-filter=".link">Links</a>');
-		$canLinkButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="link"]').stop().show();
-		});
-		$buttons.append($canLinkButton);
-		
-		//Images Only Buttons
-		var $canImageButton = $('<a href="#" class="filter" title="Show only images" data-filter=".image">Images</a>');
-		$canImageButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="image"]').stop().show();
-		});
-		$buttons.append($canImageButton);
-		
-		//Plugins Only Buttons
-		var $canPluginButton = $('<a href="#" class="filter" title="Show only plugins" data-filter=".plugin">Plugin</a>');
-		$canPluginButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="plugin"]').stop().show();
-		});
-		$buttons.append($canPluginButton);
-
-		//Snippets Only Button
-		var $canSnippetButton = $('<a href="#" class="filter" title="Show only code snippets" data-filter=".snippet">Snippets</a>');
-		$canSnippetButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="snippet"]').stop().show();
-		});
-		$buttons.append($canSnippetButton);
+		// Add Category Buttons					
+		getItem('options', function(data) {
 	
-		//Video Only Button
-		var $canVideoButton = $('<a href="#" class="filter" title="Show only videos" data-filter=".video">Videos</a>');
-		$canVideoButton.click(function(e){
-			e.preventDefault();
-			$canlist.find('li').hide()
-			$canlist.find('li[data-cat="video"]').stop().show();
-		});
-		$buttons.append($canVideoButton);
+			if(!('options' in data))
+				return;
 	
+			options = data.options;
+			
+			if('categories' in options)
+			{
+				var categories = options.categories.replace(/\s/g, '');
+				var categories = categories.split(',');
+				
+				$.each( categories, function( key, value ) {
+					
+					var $button = $('<a href="#" class="filter" title="Show only text templates" data-filter=".' + value + '">' + value + '</a>');
+					$button.click(function(e){
+						e.preventDefault();
+						$list.find('li').hide()
+						$list.find('li[data-cat="' + value + '"]').stop().show();
+					});
+					$buttons.append($button);
+
+				});
+				
+			}
+		});	
 
 		//Add Buttons
 		$panel.append($buttons);
@@ -300,7 +273,7 @@
 			$replyBox = null;
 		});
 
-		$doc.on('click', '.cankey-op', function(e){
+		$doc.on('click', '.pasteroid-template', function(e){
 			e.preventDefault();
 			var key = $(this).attr('data-key');
 
@@ -397,11 +370,11 @@
 
 			//If new, add it
 			if( !(key in cans) ){
-				$canlist.append( canEntry(key, title, val, cat ) );
+				$list.append( canEntry(key, title, val, cat ) );
 			}
 			else
 			{
-				var $can = $canlist.find('li[data-key="' + key + '"]');
+				var $can = $list.find('li[data-key="' + key + '"]');
 				$can.replaceWith(canEntry(key, title, val, cat ));
 			}
 			
@@ -412,7 +385,7 @@
 				//'tags'	: tags for version 1.5
 			};
 
-			console.log($canlist.children().length);
+			console.log($list.children().length);
 
 			save();
 			
@@ -435,7 +408,7 @@
 			return;
 
 		options = data.options;
-				console.log(options);
+		
 		if('urls' in options)
 		{
 			var match = false;
@@ -454,7 +427,7 @@
 			}
 
 			if(match) {
-				console.log(match);
+
 				$(function() {
 					loadData(construct);
 				});

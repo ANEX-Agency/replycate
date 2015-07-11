@@ -1,69 +1,70 @@
-// Save this script as `options.js`
-
 var storage = chrome.storage.sync;
 
 var options;
 
-
-// Saves options to localStorage.
+/**
+ * Saves options.
+ */
 function save_options() {
 
+	// columns
+//	var select = document.getElementById("pasteroid-columns");
+//	var columns = select.children[select.selectedIndex].value;
+//	options['columns'] = columns * 1;
 
+	// categories
+	var categories = document.getElementById("pasteroid-categories");
+	options['categories'] = categories.value;
+	
+	// urls
+	var urls = document.getElementById("pasteroid-urls");
+	options['urls'] = urls.value;
 
-  // columns
-    var select = document.getElementById("pasteroid-columns");
-    var columns = select.children[select.selectedIndex].value;
-    options['columns'] = columns * 1;
-
-
-    // urls
-    var urls = document.getElementById("pasteroid-urls");
-    options['urls'] = urls.value;
-
-
-
-
-
-
-
-
+	
 
     // save all
-    storage.set({options: options}, function()
-    {
-        var status = document.getElementById("status");
-        status.innerHTML = "Options Saved.";
-        setTimeout(function() {
-          status.innerHTML = "";
-        }, 750);
+    storage.set({options: options}, function() {
+		
+		$( '.container' ).append( '<div class="status">' );
+//        var status = document.getElementById("status");
+//        status.innerHTML = "Options Saved.";
+//        setTimeout(function() {
+//          status.innerHTML = "";
+//        }, 3000);
+		$( '.status' ).html( 'SAVED' ).delay( 3000 ).fadeOut();
+		
     });
+	
 }
 
 // Restores select box state to saved value from localStorage.
 function restore_options() {
 
+	// categories
+	if(options.categories) {
+		document.getElementById("pasteroid-categories").value = options.categories;
+	}
+	
+	// urls
+	if(options.urls) {
+		document.getElementById("pasteroid-urls").value = options.urls;
+	}
 
-// urls
-     if(options.urls) {
-      document.getElementById("pasteroid-urls").value = options.urls;
-     }
+	// columns
+//	if(options.columns) {
+//	
+//		var select = document.getElementById("pasteroid-columns");
+//		for (var i = 0; i < select.children.length; i++) {
+//			var child = select.children[i];
+//			if (child.value == options.columns) {
+//				child.selected = "true";
+//				break;
+//			}
+//		}
+//	
+//	}
 
-
-// columns
-    if(options.columns) {
-
-      var select = document.getElementById("pasteroid-columns");
-      for (var i = 0; i < select.children.length; i++) {
-        var child = select.children[i];
-        if (child.value == options.columns) {
-          child.selected = "true";
-          break;
-        }
-      }
-
-    }
-
- }
+}
 
 
 

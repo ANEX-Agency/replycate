@@ -1,0 +1,77 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    fonz-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(73,78,92);
+}
+
+header {margin: 0 0 50px 0; text-align: center;}
+
+.logo img {max-width: 140px;}
+
+header span {
+    color: #EEE;
+    font-size: 1.8em;
+    letter-spacing: 2;
+    text-transform: uppercase;
+}
+
+header .logo + span {color: #999; font-size: 1.4em;}
+
+.container {
+    width: 600px;
+    margin: 100px auto;
+    padding: 25px;
+    background: rgba(22,22,22,0.7);
+}
+
+.field {margin: 0 0 20px 0;}
+
+label {
+    color: #EEE;
+    margin: 0 0 5px 0;
+    display: inline-block;
+    font-size: 1.4em;
+}
+
+label + span {
+    color: #999;
+    margin: 0 0 0 10px;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="date"],
+input[type="url"],
+select,
+textarea {
+	width: 100%;
+    height: 40px;
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+}
+
+input[type="submit"] {
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    color: #EEE;
+    text-transform: uppercase;
+    border: 0;
+    background: rgb(255,51,51);
+}
+
+.status {padding: 10px; color: #FFF; text-align: center; background: rgba( 0, 0, 0, 0.8);}

@@ -56,13 +56,21 @@
 
 .pasteroid .pasteroid-widget {width: auto; padding: 50px 20px; display: inline; position: fixed; top: 0; right: 0;}
 
+.pasteroid .pasteroid-widget .pasteroid-button[href="#pasteroid"] {
+    padding: 8px 0;
+}
+
+.pasteroid .pasteroid-widget .pasteroid-button[href="#pasteroid"] img {
+    width: 75%;
+}
+
 .pasteroid .pasteroid-widget .pasteroid-button[href="#add"] {
     position: absolute;
     top: 130px;
     left: 30px;
 }
 
-.pasteroid .pasteroid-widget .button[href="#settings"] {
+.pasteroid .pasteroid-widget .pasteroid-button[href="#settings"] {
     position: absolute;
     top: 190px;
     left: 30px;
@@ -103,16 +111,13 @@
 	color: #CCC;
 	font-size: 12px;
 	line-height: 20px;
-	text-transform: none;
+	text-transform: uppercase;
 	text-decoration: none;
     outline: 0;
 }
 
 .pasteroid .pasteroid-actions a:hover { text-decoration: none !important; }
-
 .pasteroid .pasteroid-actions a:active { top: 0; }
-
-.pasteroid .pasteroid-actions #can-new { float: right; }
 
 
 /*
@@ -173,11 +178,14 @@
 	text-shadow: none;
 }
 
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge { background: rgb(102,102,102); }
+
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-text { background: #F33; }
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-link { background: #06F; }
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-image { background: #339; }
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-snippet { background: #0CC; }
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-plugin { background: #C60; }
+.pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-video { background: rgb(51,204,102); }
 
 .pasteroid .pasteroid-panel .pasteroid-panel-content ul li .pasteroid-template-badge.pasteroid-template-badge-null { display: none; }
 
@@ -282,10 +290,6 @@
 }
 
 .pasteroid .pasteroid-editor .pasteroid-editor-save {
-    width: 100%;
-    padding: 15px 0 !important;
-    height: auto;
-    
     display: block;
     
 	color: #EEE;
