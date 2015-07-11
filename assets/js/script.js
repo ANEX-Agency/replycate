@@ -130,17 +130,17 @@
 		
 		var typeCat = '';
 
-		var $container			= $('<div class="pasteroid" id="cancontainer">');
-		var $widget				= $('<div class="pasteroid-widget">' );
-		var $panel				= $('<div class="pasteroid-panel" id="canpanel">');
+		var $container			= $('<div id="cancontainer" class="pasteroid">');
+		var $widget				= $('<div id="pasteroid-widget" class="pasteroid-widget">' );
+		var $panel				= $('<div id="pasteroid-panel" class="pasteroid-panel">');
 		
 		var $buttons			= $('<div class="can-buttons pasteroid-actions">');
 		var $contents			= $('<div id="cancontents" class="pasteroid-panel-content">');
 		var $list 			= $('<ul id="canlist">');
 
-		var $buttonPasteroid	= $('<a href="#pasteroid" id="canbutton" class="pasteroid-button pasteroid-button-primary animated bounceIn"><img src="' + chrome.extension.getURL('assets/img/icon.png') + '" /></span></a>');
-		var $buttonAdd			= $('<a href="#add" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-pencil"></span></a>');
-		var $buttonSettings		= $('<a href="#settings" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-cog"></span></a>');
+		var $buttonPasteroid	= $('<a href="#pasteroid" id="pasteroid-button-main" class="pasteroid-button pasteroid-button-primary animated bounceIn"><img src="' + chrome.extension.getURL('assets/img/icon.png') + '" /></span></a>');
+		var $buttonAdd			= $('<a href="#add" id="pasteroid-button-add" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-pencil"></span></a>');
+		var $buttonSettings		= $('<a href="' + chrome.extension.getURL('options.html') + '" id="pasteroid-button-settings" class="pasteroid-button pasteroid-button-secondary animated bounceIn" target="_blank"><span class="lnr lnr-cog"></span></a>');
 
 		/**
 		 * Pasteroid Button
@@ -153,14 +153,14 @@
 				
 				//Close it
 				$container.removeClass('panel-open');
-				$('#canpanel').slideUp();
+				$panel.slideUp();
 				//$('html').off('click.canclose');
 				
 			} else {
 				
 				//Open it
 				$container.addClass('panel-open');
-				$('#canpanel').slideDown();
+				$panel.slideDown();
 
 			}
 			
@@ -202,6 +202,7 @@
 		
 		$widget.append($buttonPasteroid);
 		$widget.append($buttonAdd);
+		$widget.append($buttonSettings);
 
 		//Build the Editor	
 		var $editor = $('<div class="cankey-editor pasteroid-editor">'+
@@ -261,28 +262,26 @@
 		//Add Buttons
 		$panel.append($buttons);
 		$panel.append($contents);
+		
 		$container.append($editor);
 
 		var $replyBox;
 
-		$doc.on('focus', 'textarea', function()
-		{
+		$doc.on('focusin', 'textarea', function() {
 			$replyBox = $(this);
-		}).on('blur', 'textarea', function()
-		{
-			$replyBox = null;
-		});
+		})
 
-		$doc.on('click', '.pasteroid-template', function(e){
+		$doc.on('click', '.pasteroid-template', function(e) {
+			
 			e.preventDefault();
 			var key = $(this).attr('data-key');
-
 			if(!$replyBox || !$replyBox.length)
 				$replyBox = $('textarea:first');
 
 			$replyBox.val( $replyBox.val() + cans[key]['text'] );
 
 			return false;
+			
 		});
 
 		//Close Editor Function
@@ -305,14 +304,12 @@
 			
 		});
 		
-		//Edit Can Function
+		//Edit Template Function
 		$('.pasteroid-template-edit').on('click', function(e) {
 			
 			e.preventDefault();
 			
 			canKey = $(this).attr('data-key');
-
-			console.log(canKey);
 			
 			$editor.find('#cankey-editor-key').val(canKey);
 			$editor.find('#cankey-editor-title').val(cans[canKey].title);
@@ -325,7 +322,7 @@
 	
 		});
 
-		//Delete Can Function
+		//Delete Template Function
 		$('.pasteroid-template-remove').on('click', function(e) {
 			
 			e.preventDefault();
@@ -346,15 +343,14 @@
 	
 		});
 
-		//Save Can Function
+		//Save Template Function
 		$('.pasteroid-editor-save').click(function(e) {
 			
 			e.preventDefault();
 
-
-			var title = $('#cankey-editor-title').val();
-			var val = $('#cankey-editor-val').val();
-			var cat = $('#cankey-editor-cat').val();
+			var title	= $('#cankey-editor-title').val();
+			var val		= $('#cankey-editor-val').val();
+			var cat		= $('#cankey-editor-cat').val();
 
 			if(!title || title == ''){
 				alert('You must enter a name for your paste');
@@ -382,14 +378,11 @@
 				'title': title,
 				'text' 	: val,
 				'cat'	: cat
-				//'tags'	: tags for version 1.5
 			};
-
-			console.log($list.children().length);
 
 			save();
 			
-			$editor.toggle('normal');
+			$editor.fadeToggle('normal');
 	
 			return false;
 			

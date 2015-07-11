@@ -39,7 +39,7 @@
 	} ],
 	
 	"web_accessible_resources": [
-//		"options.html",
+		"options.html",
 		"assets/css/*.css",
 		"assets/img/*.png",
 		"assets/fonts/*.eot",

@@ -30,7 +30,8 @@
     text-decoration: none;
     box-sizing: border-box;
     border-radius: 100%;
-    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+    transition: all .2s linear;
 }
  
 .pasteroid .pasteroid-button.pasteroid-button-primary {
@@ -39,7 +40,7 @@
     padding: 15px 0;
     color: #FFF;
     font-size: 30px;
-    background: rgb(30,30,30);
+    background: rgba(50,50,50,.9);
 }
 
 .pasteroid .pasteroid-button.pasteroid-button-secondary {
@@ -49,32 +50,79 @@
     color: #FFF;
     font-size: 16px;
     line-height: 1.6;
-    background: rgb(50,50,50);
+    background: rgba(80,80,80,.9);
 }
-.pasteroid .pasteroid-button.pasteroid-button-tertiary {background: rgb(70,70,70);}
 
+.pasteroid .pasteroid-button.pasteroid-button-tertiary {
+    background: rgba(110,110,110,.9);
+}
 
-.pasteroid .pasteroid-widget {width: auto; padding: 50px 20px; display: inline; position: fixed; top: 0; right: 0;}
+/*
+ * ========================================
+ * WIDGET =================================
+ * ========================================
+ */
 
-.pasteroid .pasteroid-widget .pasteroid-button[href="#pasteroid"] {
+.pasteroid .pasteroid-widget {
+    width: 100px;
+    padding: 0;
+    display: inline;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.pasteroid .pasteroid-widget #pasteroid-button-main {
+    position: absolute;
+    top: 50px;
+    left: 20px;
     padding: 8px 0;
+    opacity: .2;
 }
 
-.pasteroid .pasteroid-widget .pasteroid-button[href="#pasteroid"] img {
+.pasteroid .pasteroid-widget #pasteroid-button-main:hover {
+    width: 70px;
+    height: 70px;
+    top: 45px;
+    left: 15px;
+    padding: 8px 0;
+    opacity: .2;
+}
+
+.pasteroid .pasteroid-widget #pasteroid-button-main img {
     width: 75%;
 }
 
-.pasteroid .pasteroid-widget .pasteroid-button[href="#add"] {
+.pasteroid .pasteroid-widget #pasteroid-button-add {
     position: absolute;
     top: 130px;
     left: 30px;
 }
 
-.pasteroid .pasteroid-widget .pasteroid-button[href="#settings"] {
+.pasteroid .pasteroid-widget #pasteroid-button-add:hover {
+    width: 50px;
+    height: 50px;
+    padding: 12px 0;
+    font-size: 20px;
+    top: 125px;
+    left: 25px;
+}
+
+.pasteroid .pasteroid-widget #pasteroid-button-settings {
     position: absolute;
     top: 190px;
     left: 30px;
 }
+
+.pasteroid .pasteroid-widget #pasteroid-button-settings:hover {
+    width: 50px;
+    height: 50px;
+    padding: 12px 0;
+    font-size: 20px;
+    top: 185px;
+    left: 25px;
+}
+
 
 
 /*
@@ -117,7 +165,7 @@
 }
 
 .pasteroid .pasteroid-actions a:hover { text-decoration: none !important; }
-.pasteroid .pasteroid-actions a:active { top: 0; }
+.pasteroid a:active { top: 0; }
 
 
 /*
