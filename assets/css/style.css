@@ -8,7 +8,8 @@
 
 .pasteroid a,
 .pasteroid a:hover,
-.pasteroid a:active {
+.pasteroid a:active,
+.pasteroid a:focus {
     outline: none;
 }
 
