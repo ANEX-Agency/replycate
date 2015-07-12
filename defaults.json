@@ -21,7 +21,7 @@
   },
   "57d099e9-c423-4eb6-bae1-5c840785226c": {
     "title": "CSS Customization",
-    "text": "please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.contact-link {display: none;}</pre>",
+    "text": "please add the following <code>CSS</code> to the Custom <code>CSS Field</code> in your <code>Theme Options</code>:<br><br><pre>.sample-selector {display: none;}</pre>",
     "cat": "text"
   },
   "27fa1cb0-f4fa-4f32-93d0-597847ddb4c5": {
