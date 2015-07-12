@@ -154,7 +154,6 @@
 				//Close it
 				$container.removeClass('panel-open');
 				$panel.slideUp();
-				//$('html').off('click.canclose');
 				
 			} else {
 				
@@ -237,11 +236,11 @@
 			if(!('options' in data))
 				return;
 	
-			options = data.options;
+			option = data.options;
 			
-			if('categories' in options)
+			if('categories' in option)
 			{
-				var categories = options.categories.replace(/\s/g, '').split(',');
+				var categories = option.categories.replace(/\s/g, '').split(',');
 				
 				$.each( categories, function( key, value ) {
 					
