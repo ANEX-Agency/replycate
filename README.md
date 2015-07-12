@@ -7,8 +7,10 @@ Pasteroid lets you create, edit and manage predefined text templates/snippets (l
 Features
 =========
 
-- Add Unlimited Text Templates within a Multi Column Layout
+- Add unlimited Text Templates within a Multi Column Layout
 - Reorder Text Templates with Drag & Drop
-- Categorize them in 'Text', 'Links', 'Plugins' and 'Snippets'
+- Categorize them within your custom set categories
 - Category Badges for better Overview
 - Live Filter
+- Save & Sync in chrome.storage
+- Works on every website with one or more textareas (Whitelist)
