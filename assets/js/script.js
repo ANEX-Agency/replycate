@@ -205,14 +205,14 @@
 		$widget.append($buttonSettings);
 
 		//Build the Editor	
-		var $editor = $('<div class="cankey-editor pasteroid-editor">'+
+		var $editor = $('<div class="pasteroid-editor">'+
 								'<form>'+
 									'<a href="#" class="pasteroid-editor-close"><span class="lnr lnr-cross"></span></a>'+
 									'<input id="cankey-editor-title" type="text" placeholder="Click to edit title" />'+
 									'<input id="cankey-editor-key" type="hidden" />'+
 									'<textarea id="cankey-editor-val" placeholder="Insert Text here"></textarea>'+
 									'<select id="cankey-editor-cat">'+
-										'<option>text</option>'+
+										'<option selected="selected">text</option>'+
 										'<option>link</option>'+
 										'<option>image</option>'+
 										'<option>plugin</option>'+
@@ -224,12 +224,12 @@
 							'</div>');
 							
 		//Show All Button
-		var $canAllButton = $('<a href="#" class="filter" title="Show all" data-filter="all">All</a>');
-		$canAllButton.click(function(e){
+		var $filterButtonAll = $('<a href="#" class="filter" title="Show all" data-filter="all">All</a>');
+		$filterButtonAll.click(function(e){
 			e.preventDefault();
 			$list.find('li').show();
 		});
-		$buttons.append($canAllButton);
+		$buttons.append($filterButtonAll);
 		
 		// Add Category Buttons					
 		getItem('options', function(data) {
@@ -241,8 +241,7 @@
 			
 			if('categories' in options)
 			{
-				var categories = options.categories.replace(/\s/g, '');
-				var categories = categories.split(',');
+				var categories = options.categories.replace(/\s/g, '').split(',');
 				
 				$.each( categories, function( key, value ) {
 					
@@ -420,7 +419,9 @@
 			}
 
 			if(match) {
-
+				
+				$('head').append('<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />');
+				
 				$(function() {
 					loadData(construct);
 				});

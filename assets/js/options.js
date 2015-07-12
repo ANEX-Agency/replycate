@@ -31,7 +31,7 @@ function save_options() {
 //        setTimeout(function() {
 //          status.innerHTML = "";
 //        }, 3000);
-		$( '.status' ).html( 'SAVED' ).delay( 3000 ).fadeOut();
+		$( '.status' ).html( 'Options saved' ).delay( 3000 ).fadeOut();
 		
     });
 	

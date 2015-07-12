@@ -181,6 +181,7 @@
 	padding: 4px 10px;
 	margin: 0 !important;
 	position: relative;
+    font-family: 'Open Sans' !important;
     box-sizing: border-box;
     transition: background .2s linear;
 }
@@ -357,6 +358,7 @@
 }
 
 .pasteroid .pasteroid-editor .pasteroid-editor-close {
+    margin: 0 0 20px 0;
 	float: right;
 	color: #FFF;
     font-size: 20px;
