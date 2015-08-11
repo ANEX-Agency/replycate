@@ -2,7 +2,7 @@
 	"name":			"Pasteroid",
 	"description":	"Pasteroid lets you create, edit and manage predefined text templates.",
 	
-	"version":		"1.5.0",
+	"version":		"1.6.0",
 	"homepage_url": "http://anex.at",
 
 	"manifest_version": 2,

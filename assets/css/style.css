@@ -134,14 +134,25 @@
  */
 
 .pasteroid .pasteroid-panel {
+    max-height: 0;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    display: none;
     background: rgba( 22, 22, 22, 0.9 );
     box-shadow: 0 0 20px rgba(0,0,0,.5);
+    -webkit-transition: all 1s cubic-bezier(.02, .01, .47, 1);
+    -moz-transition: all 1s cubic-bezier(.02, .01, .47, 1);
+    transition: all 1s cubic-bezier(.02, .01, .47, 1);
+}
+
+.pasteroid.panel-open .pasteroid-panel {
+	max-height: 100%;  
+}
+
+.pasteroid.panel-closed .pasteroid-panel {
+    max-height: 0;
 }
 
 /*
@@ -151,7 +162,7 @@
  */
 
 .pasteroid .pasteroid-actions {
-	padding: 0 5px;
+    height: 39px;
     border-bottom: 1px solid #444;
 }
 
@@ -171,10 +182,81 @@
 
 
 /*
+ * ========================================
+ * PANEL > SEARCH FIELD ===================
+ * ========================================
+ */
+
+.pasteroid .pasteroid-actions input#pasteroid-panel-search {
+    width: 100px;
+    float: right;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    border-left: 1px solid #444;
+    color: #999;
+    transition: all .2s linear;
+}
+
+.pasteroid .pasteroid-actions input#pasteroid-panel-search:focus {
+    width: 300px;
+    border-left: 1px solid #999;
+    outline: none;
+    color: #EEE;
+    background: rgba( 255, 255, 255, .1 );
+}
+
+/*
+ * WebKit Search Cancel Button
+ */
+
+::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+::-webkit-search-cancel-button:after {  /* generate content after all "X" buttons */
+    content: '';    /* required for :after content to show */
+    display: block;
+
+    /*
+     * Setup dimensions for the custom icon.  Note that these dimensions seem to
+     * affect positioning.
+     */
+    width: 14px;
+    height: 14px;
+    
+    cursor: pointer;
+    
+    /*
+     * Base64 encoded custom "X" icon
+     * Natively 30x30, but downscaled for highres screens
+     */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+
+    /* setup all the background tweaks for our custom icon */
+    background-repeat: no-repeat;
+
+    /* icon size */
+    background-size: 12px;
+
+    /* note: this positioning will need to be tweaked for iOS */
+    background-position: center;
+}
+
+
+
+/*
  * ==============================
  * PANEL > GRID =================
  * ==============================
  */
+
+.pasteroid .pasteroid-panel .pasteroid-panel-content > ul {
+	max-height: 300px;
+    overflow: auto;
+}
 
 .pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li {
 	width: 50%; /* 2 in row */
@@ -188,7 +270,7 @@
     transition: background .2s linear;
 }
 
-@media all and (min-width: 1024px){
+@media all and (min-width: 768px){
     .pasteroid .pasteroid-panel .pasteroid-panel-content > ul > li {
         width: 25%; /* 4 in row */
     }
@@ -365,105 +447,4 @@
 	color: #FFF;
     font-size: 20px;
 	text-decoration: none;
-	/*position: absolute;
-	right: 5px;
-	bottom: 5px;*/
 }
-
-
-
-/*
-.pasteroid .pasteroid-editor textarea {
-	padding: 10px !important;
-	width: 100%;
-    max-width: 100%;
-	min-height: 40vh;
-	max-height: 40vh;
-	display: block;
-	border-radius: 0;
-	margin: 0 !important;
-    box-sizing: border-box;
-	transition: all .2s ease-in-out;
-}
-
-.pasteroid .pasteroid-editor textarea:not(:focus) {
-	background: transparent;
-	border: none;
-	padding-left: 0px !important;
-	color: white;
-	font-style: normal;
-	font-weight: bold;
-}
-
-.pasteroid .pasteroid-editor input[type='text'],
-.pasteroid .pasteroid-editor input[type='text']:hover {
-	width: 100% !important;
-    height: 40px;
-	padding: 10px !important;
-	margin: 20px 0 !important;
-	border: none !important;
-	float: left;
-    background-color: #FFF;
-    background-image: none;
-	transition: all .2s ease-in-out;
-	border-radius: 0;
-    box-sizing:	border-box;
-}
-
-.pasteroid .pasteroid-editor input[type='text']:not(:focus) {
-	background: transparent;
-	border: none;
-	padding-left: 0px !important;
-	color: white;
-	font-style: normal;
-	font-weight: bold;
-}
-
-.pasteroid .pasteroid-editor select#cankey-editor-cat {
-	width: 100% !important;
-    height: 40px;
-    padding: 10px;
-	display: block;
-	float: left;
-	margin: 20px 0 !important;
-	border-radius: 0;
-	text-transform: capitalize !important;
-	transition: all .2s ease-in-out;
-}
-
-.pasteroid .pasteroid-editor select#cankey-editor-cat:not(:focus) {
-	background: transparent;
-	border: none;
-	padding-left: 0px !important;
-	color: white;
-	font-style: normal;
-	font-weight: bold;
-}
-
-
-.pasteroid .pasteroid-editor #cankey-editor-save {
-    width: 100%;
-    height: auto;
-	margin: 0;
-    padding: 10px;
-    
-    display: block;
-    
-	color: #EEE;
-    font-size: 18px;
-    font-family: 'Open Sans';
-    font-weight: 300;
-    text-transform: uppercase;
-
-	background: #FF4D4D;
-    border: 0;
-	border-radius: 0;
-    box-shadow: none;
-
-}
-
-.pasteroid .pasteroid-editor #cankey-editor-save:hover {
-    color: #FFF;
-	background: #FF6C6C;
-}
-*/

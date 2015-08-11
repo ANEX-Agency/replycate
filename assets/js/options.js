@@ -5,12 +5,8 @@ var options;
 /**
  * Saves options.
  */
-function save_options() {
 
-	// columns
-//	var select = document.getElementById("pasteroid-columns");
-//	var columns = select.children[select.selectedIndex].value;
-//	options['columns'] = columns * 1;
+function save_options() {
 
 	// categories
 	var categories = document.getElementById("pasteroid-categories");
@@ -20,7 +16,12 @@ function save_options() {
 	var urls = document.getElementById("pasteroid-urls");
 	options['urls'] = urls.value;
 
-	
+	// events
+	var select = document.getElementById("pasteroid-event");
+	var events = select.children[select.selectedIndex].value;
+	options['events'] = events * 1;
+
+
 
     // save all
     storage.set({options: options}, function() {
@@ -41,43 +42,36 @@ function save_options() {
 function restore_options() {
 
 	// categories
-	if(options.categories) {
+	if( options.categories ) {
 		document.getElementById("pasteroid-categories").value = options.categories;
 	}
 	
 	// urls
-	if(options.urls) {
+	if( options.urls ) {
 		document.getElementById("pasteroid-urls").value = options.urls;
 	}
 
-	// columns
-//	if(options.columns) {
-//	
-//		var select = document.getElementById("pasteroid-columns");
-//		for (var i = 0; i < select.children.length; i++) {
-//			var child = select.children[i];
-//			if (child.value == options.columns) {
-//				child.selected = "true";
-//				break;
-//			}
-//		}
-//	
-//	}
+	// events
+	if( options.events ) {
+	
+		var select = document.getElementById("pasteroid-event");
+		for (var i = 0; i < select.children.length; i++) {
+			var child = select.children[i];
+			if (child.value == options.events) {
+				child.selected = "true";
+				break;
+			}
+		}
+	
+	}
 
 }
 
 
 
 
-
-
-
-
-
-
-
-
 storage.get('options', function(data) {
+	
     options = data.options || {};
 
     if(document.readyState === "complete")
@@ -88,6 +82,7 @@ storage.get('options', function(data) {
 
 
     document.querySelector('#save').addEventListener('click', save_options);
+	
 });
 
 

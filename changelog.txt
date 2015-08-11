@@ -1,7 +1,13 @@
+------- 1.6.0 [23-07-2015] -----------
+* added new option to choose when pasteroid opens up
+* added live search field (currently with no functionality)
+* improved various parts
+* fixed various bugs
+
 ------- 1.5.0 [05-07-2015] -----------
 * renamed to Pasteroid
 * re-design of visual appearance and ui/ux
-* update jquery to 2.1.4
+* updated jquery to 2.1.4
 
 ------- 1.4.9 [14-05-2013] -----------
 * fixed issue with inability to delete a template

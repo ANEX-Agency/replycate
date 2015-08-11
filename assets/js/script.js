@@ -13,6 +13,30 @@
 *************************************************************************/
 
 (function () {
+	
+    var transition = (function() {
+
+        var transitionEnd = (function() {
+
+            var element = document.body || document.documentElement,
+                transEndEventNames = {
+                    WebkitTransition : 'webkitTransitionEnd',
+                    MozTransition    : 'transitionend',
+                    OTransition      : 'oTransitionEnd otransitionend',
+                    transition       : 'transitionend'
+                }, name;
+
+            for (name in transEndEventNames) {
+                if (element.style[name] !== undefined) return transEndEventNames[name];
+            }
+        }());
+
+        return transitionEnd && { end: transitionEnd };
+		
+    })();
+	
+	
+		
 
 	var $doc = $(document);
 
@@ -23,8 +47,11 @@
 
 	var options;
 
-
-	// Store item in local storage:
+	/**
+	 * ==================================================
+	 * Store item in local storage
+	 * ==================================================
+	 */
 	function setItem(key, value, cb) {
 
 		var data = {};
@@ -32,35 +59,62 @@
 
 		storageArea.set(data, cb);
 	}
-
-	// Gets item from local storage with specified key.
+	
+	/**
+	 * ==================================================
+	 * Gets item from local storage with specified key
+	 * ==================================================
+	 */
 	function getItem(key, cb) {
 		storageArea.get(key, cb);
 	}
 
-	function log(txt) {
-		if(logging) {
-			console.log(txt);
+	/**
+	 * ==================================================
+	 * FUNCTION
+	 * ==================================================
+	 */
+	function log( txt ) {
+		
+		if( logging ) {
+			
+			console.log( txt );
+			
 		}
+		
 	}
 	
-	
-	function canEntry(key, title, val, cat){
-		return $('<li id="'+key+'" class="pasteroid-template cankey-op pasteroid-template-'+cat+'" data-key="'+key+'" data-cat="'+cat+'" title="'+title+'"> '+
+	/**
+	 * ==================================================
+	 * Pastie
+	 * ==================================================
+	 */
+	function pastie( key, title, val, cat ) {
+		
+		var markup = $( '<li id="' + key + '" class="pasteroid-template cankey-op pasteroid-template-' + cat + '" data-key="' + key + '" data-cat="' + cat + '" title="' + title + '"> '+
 					'<a href="#" class="pasteroid-template-name can-keyname">'+
-						'<span class="pasteroid-template-badge pasteroid-template-badge-'+cat+'">'+cat+'</span>'+
-						'<span class="pasteroid-template-title cantitle">'+title+'</span>'+
+						'<span class="pasteroid-template-badge pasteroid-template-badge-' + cat + '">' + cat + '</span>'+
+						'<span class="pasteroid-template-title cantitle">' + title + '</span>'+
 					'</a> '+
-					'<span class="pasteroid-template-content cantext" >'+val+'</span> '+
+					'<span class="pasteroid-template-content cantext" >' + val + '</span> '+
 					'<span class="pasteroid-template-actions canactions"> '+
 						'<a href="#" class="pasteroid-template-move" title="Move Can"><span class="lnr lnr-menu"></span></a> '+
-						'<a href="#" class="pasteroid-template-edit cankey-edit" title="Edit Can" data-key="'+key+'" ><span class="lnr lnr-pencil"></span></a> '+
+						'<a href="#" class="pasteroid-template-edit cankey-edit" title="Edit Can" data-key="' + key + '" ><span class="lnr lnr-pencil"></span></a> '+
 						'<a href="#" class="pasteroid-template-remove cankey-remove" title="Delete Can"><span class="lnr lnr-trash"></span></a> '+
 					'</span> '+
-				'</li>');
+				'</li>' );
+		
+		return markup;
+				
 	}
 
+	/**
+	 * ==================================================
+	 * Create a unique ID
+	 * ==================================================
+	 */
 	function createUUID() {
+		
 	    // http://www.ietf.org/rfc/rfc4122.txt
 	    var s = [];
 	    var hexDigits = "0123456789abcdef";
@@ -73,99 +127,196 @@
 
 	    var uuid = s.join("");
 	    return uuid;
+		
 	}
 
+	/**
+	 * ==================================================
+	 * ???
+	 * ==================================================
+	 */
 	var cans  = {};
 	var order = [];
-
+	
+	/**
+	 * ==================================================
+	 * Save Order
+	 * ==================================================
+	 */
 	function saveOrder() {
 
-		var order = $(setSelector).sortable("toArray");
-		setItem('order', order, function() {
-			console.log("successfully updated");
-		});
+		var order = $( setSelector ).sortable( 'toArray' );
+		
+		setItem( 'order', order, function() {
+			
+			console.log( 'successfully updated' );
+			
+		} );
+		
 	}
 
+	/**
+	 * ==================================================
+	 * Save
+	 * ==================================================
+	 */
 	function save(){
 
 		saveOrder();
 
-		setItem('templates', cans, function() {
-			console.log("cans saved");
-		});
+		setItem( 'templates', cans, function() {
+			
+			console.log( 'pasteroids saved' );
+			
+		} );
+		
 	}
 
+	/**
+	 * ==================================================
+	 * Load Data
+	 * ==================================================
+	 */
+	function loadData( cb ) {
 
-	function loadData(cb) {
-
-		getItem(['templates', 'order'], function(data) {
+		getItem( ['templates', 'order'], function( data ) {
 
 			//Load default cans if none exist
-			if(data.templates === undefined || data.templates === {}) {
+			if( data.templates === undefined || data.templates === {} ) {
 				
-				$.getJSON(chrome.extension.getURL('defaults.json'), function(data) {
+				$.getJSON( chrome.extension.getURL( 'defaults.json' ), function( data ) {
 
-					_.each(data, function(can, key) {
+					_.each( data, function( can, key ) {
 						order.push(key);
-					});
+					} );
 
 					cans = data;
 
 					cb();
-				});
-			}
-			else
-			{
+					
+				} );
+				
+			} else {
+				
 				cans  = data.templates;
-				order = data.order || Object.keys(cans);
+				order = data.order || Object.keys( cans );
 
 				cb();
+				
 			}
-		});
+			
+		} );
+		
 	}
 	
+	/**
+	 * ==================================================
+	 * Construct
+	 * ==================================================
+	 */
 	function construct( data ) {
 		
 		var canKey = '';
 		
 		var typeCat = '';
 
-		var $container			= $('<div id="cancontainer" class="pasteroid">');
+		var $container			= $('<div id="pasteroid" class="pasteroid panel-closed">');
 		var $widget				= $('<div id="pasteroid-widget" class="pasteroid-widget">' );
 		var $panel				= $('<div id="pasteroid-panel" class="pasteroid-panel">');
 		
-		var $buttons			= $('<div class="can-buttons pasteroid-actions">');
-		var $contents			= $('<div id="cancontents" class="pasteroid-panel-content">');
-		var $list 			= $('<ul id="canlist">');
+		var $buttons			= $('<div id="pasteroid-actions" class="pasteroid-actions">');
+		var $contents			= $('<div id="pasteroid-panel-content" class="pasteroid-panel-content">');
+		var $list 				= $('<ul>');
 
+		// Single Buttons
 		var $buttonPasteroid	= $('<a href="#pasteroid" id="pasteroid-button-main" class="pasteroid-button pasteroid-button-primary animated bounceIn"><img src="' + chrome.extension.getURL('assets/img/icon.png') + '" /></span></a>');
 		var $buttonAdd			= $('<a href="#add" id="pasteroid-button-add" class="pasteroid-button pasteroid-button-secondary animated bounceIn"><span class="lnr lnr-pencil"></span></a>');
-		var $buttonSettings		= $('<a href="' + chrome.extension.getURL('options.html') + '" id="pasteroid-button-settings" class="pasteroid-button pasteroid-button-secondary animated bounceIn" target="_blank"><span class="lnr lnr-cog"></span></a>');
-
-		/**
-		 * Pasteroid Button
-		 */		
-		$buttonPasteroid.on('click', function(e){	
+		var $buttonSettings		= $('<a href="' + chrome.extension.getURL( 'options.html' ) + '" id="pasteroid-button-settings" class="pasteroid-button pasteroid-button-secondary animated bounceIn" target="_blank"><span class="lnr lnr-cog"></span></a>');
 		
-			e.preventDefault();
+		var $panelSearchField	= $('<input id="pasteroid-panel-search" class="pasteroid-panel-search" type="search" placeholder="Search..." value="" />');
+		
+		var open = false;
+		
+		$panel.on(transition.end, function() {
+			
+			open = $container.hasClass('panel-open');
 				
-			if( $container.hasClass('panel-open') ) {
+			console.log('Status: ' + open);
+			
+			
+		})
+		
+		// Add Category Buttons					
+		getItem( 'options', function( data ) {
+	
+			if( !( 'options' in data ) )
+				return;
+	
+			opt = data.options;
+			
+			if( 'events' in opt ) {
 				
-				//Close it
-				$container.removeClass('panel-open');
-				$panel.slideUp();
+				if( opt.events == 1 ) {
+					
+					/**
+					 * Pasteroid Button
+					 */		
+					$buttonPasteroid.on('click', function(e){	
+					
+						e.preventDefault();
+							
+						if( $container.hasClass('panel-open') ) {
+							
+							$container.addClass('panel-closed');
+							$container.removeClass('panel-open');
+							
+						} else {
+							
+							$container.addClass('panel-open');
+							$container.removeClass('panel-closed');
+			
+						}
+						
+						return false;
+						
+					});
+					
+				} else if( opt.events == 2 ) {
+					
+					$buttonPasteroid.on('click', function(e){	
+					
+						e.preventDefault();
+													
+						return false;
+						
+					});
+					
+					$('textarea').on('focusin', function(){	
+							
+						$container.addClass('panel-open');
+						$container.removeClass('panel-closed');
+						
+						return false;
+			
+					});
+										
+					$('textarea').on('focusout', function() {
+						
+						if($('.pasteroid-panel' + ':hover').length)
+							return;
+							
+						$container.addClass('panel-closed');
+						$container.removeClass('panel-open');
+						
+						return false;
+			
+					});
+					
+				}
 				
-			} else {
-				
-				//Open it
-				$container.addClass('panel-open');
-				$panel.slideDown();
-
 			}
 			
-			return false;
-			
-		});
+		});	
 		
 		/**
 		 * Add New Button
@@ -189,7 +340,7 @@
 
 		$.each(order, function(ndx, key) {
 			var can = cans[key];
-			$list.append(canEntry(key, can.title, can.text, can.cat));
+			$list.append( pastie( key, can.title, can.text, can.cat ) );
 		});
 		
 		$('body').append($container);
@@ -210,27 +361,21 @@
 									'<input id="cankey-editor-title" type="text" placeholder="Click to edit title" />'+
 									'<input id="cankey-editor-key" type="hidden" />'+
 									'<textarea id="cankey-editor-val" placeholder="Insert Text here"></textarea>'+
-									'<select id="cankey-editor-cat">'+
-										'<option selected="selected">text</option>'+
-										'<option>link</option>'+
-										'<option>image</option>'+
-										'<option>plugin</option>'+
-										'<option>snippet</option>'+
-										'<option>video</option>'+
-									'</select>'+
+									'<select id="cankey-editor-cat"></select>'+
 									'<input type="submit" value="Save" id="cankey-editor-save" class="pasteroid-editor-save" /> '+
 								'</form> '+
 							'</div>');
 							
 		//Show All Button
 		var $filterButtonAll = $('<a href="#" class="filter" title="Show all" data-filter="all">All</a>');
+		
 		$filterButtonAll.click(function(e){
 			e.preventDefault();
 			$list.find('li').show();
 		});
+		
 		$buttons.append($filterButtonAll);
 		
-		// Add Category Buttons					
 		getItem('options', function(data) {
 	
 			if(!('options' in data))
@@ -244,19 +389,65 @@
 				
 				$.each( categories, function( key, value ) {
 					
+					// Add Category Buttons					
 					var $button = $('<a href="#" class="filter" title="Show only text templates" data-filter=".' + value + '">' + value + '</a>');
+					
 					$button.click(function(e){
 						e.preventDefault();
 						$list.find('li').hide()
 						$list.find('li[data-cat="' + value + '"]').stop().show();
 					});
+					
 					$buttons.append($button);
+					
+					// Add option to editor
+					$( '.pasteroid-editor select#cankey-editor-cat' ).append( $( '<option>' + value + '</option>' ) );
 
 				});
 				
 			}
-		});	
+		});
+			
+		// Add Search Field
+		$buttons.append($panelSearchField);
+		
+		var $panelReset = $('<a href="#" class="reset">Reset View</a>');
+		
+		$panelReset.hide();
+		
+		$buttons.append($panelReset);
 
+		// Count number of characters in search field and perform certain actions (show/hide filters)
+		$panelSearchField.on( 'keyup search', function() {
+			
+			var length = this.value.length;
+			
+			if( length >= 5 ) {
+				
+				var doIt = true;
+					
+			} else {
+				
+				var doIt = false;
+					
+			}
+			
+			if( doIt == true ) {
+				
+				$( '.pasteroid .filter' ).fadeOut( 500, function() {
+					$panelReset.fadeIn();
+				});
+				
+			} else {
+				
+				$panelReset.fadeOut( 500, function() {
+					$( '.pasteroid .filter' ).fadeIn();
+				});
+				
+			}
+			
+		} )
+				
 		//Add Buttons
 		$panel.append($buttons);
 		$panel.append($contents);
@@ -268,16 +459,17 @@
 		$doc.on('focusin', 'textarea', function() {
 			$replyBox = $(this);
 		})
-
+		
 		$doc.on('click', '.pasteroid-template', function(e) {
 			
 			e.preventDefault();
 			var key = $(this).attr('data-key');
+
 			if(!$replyBox || !$replyBox.length)
 				$replyBox = $('textarea:first');
 
 			$replyBox.val( $replyBox.val() + cans[key]['text'] );
-
+			
 			return false;
 			
 		});
@@ -363,13 +555,15 @@
 			var key = $('#cankey-editor-key').val() || createUUID();
 
 			//If new, add it
-			if( !(key in cans) ){
-				$list.append( canEntry(key, title, val, cat ) );
-			}
-			else
-			{
-				var $can = $list.find('li[data-key="' + key + '"]');
-				$can.replaceWith(canEntry(key, title, val, cat ));
+			if( !( key in cans ) ){
+				
+				$list.append( pastie( key, title, val, cat ) );
+				
+			} else {
+				
+				var $can = $list.find( 'li[data-key="' + key + '"]' );
+				$can.replaceWith( pastie( key, title, val, cat ) );
+				
 			}
 			
 			cans[key] = {
@@ -380,52 +574,62 @@
 
 			save();
 			
-			$editor.fadeToggle('normal');
+			$editor.fadeToggle( 'normal' );
 	
 			return false;
 			
-		});
+		} );
 
-		$(setSelector).sortable({
+		$( setSelector ).sortable( {
 			cursor: "move",
 			handle: '.pasteroid-template-move',
 			update: saveOrder,
-		});
+		} );
 	}
 	
-	getItem('options', function(data) {
+	/**
+	 * ==================================================
+	 * Get Item
+	 * ==================================================
+	 */
+	getItem( 'options', function( data ) {
 
-		if(!('options' in data))
+		if( !( 'options' in data ) )
 			return;
 
 		options = data.options;
 		
-		if('urls' in options)
-		{
+		if( 'urls' in options ) {
+			
 			var match = false;
 			var lines = options.urls.split(/\r?\n/);
 
-			for(var i=0; i<lines.length; i++) {
+			for( var i=0; i<lines.length; i++ ) {
 
 				var line = lines[i].trim();
 
 				var uri = window.location.hostname + window.location.pathname;
 
-				if(uri.indexOf(line) !== -1) {
+				if( uri.indexOf( line ) !== -1 ) {
 					match = true;
 					break;
 				}
 			}
 
-			if(match) {
+			if( match ) {
 				
-				$('head').append('<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />');
+				$( 'head' ).append( '<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />' );
 				
-				$(function() {
-					loadData(construct);
-				});
+				$( function() {
+					
+					loadData( construct );
+					
+				} );
 				
 			}
+			
 		}
-	});
+		
+	} );
+	
 })();
