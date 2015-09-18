@@ -1,3 +1,7 @@
+------- 1.6.1 [23-07-2015] ----------- (not released yet)
+* pasties now get inserted on cursor position instead of the end
+* added webfont local
+
 ------- 1.6.0 [23-07-2015] -----------
 * added new option to choose when pasteroid opens up
 * added live search field (currently with no functionality)

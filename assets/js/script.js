@@ -149,7 +149,7 @@
 		
 		setItem( 'order', order, function() {
 			
-			console.log( 'successfully updated' );
+			Materialize.toast( 'Successfully updated!', 4000 )
 			
 		} );
 		
@@ -166,7 +166,7 @@
 
 		setItem( 'templates', cans, function() {
 			
-			console.log( 'pasteroids saved' );
+			Materialize.toast( 'Item Saved!', 4000 )
 			
 		} );
 		
@@ -361,7 +361,7 @@
 									'<input id="cankey-editor-title" type="text" placeholder="Click to edit title" />'+
 									'<input id="cankey-editor-key" type="hidden" />'+
 									'<textarea id="cankey-editor-val" placeholder="Insert Text here"></textarea>'+
-									'<select id="cankey-editor-cat"></select>'+
+									'<select class="browser-default" id="cankey-editor-cat"></select>'+
 									'<input type="submit" value="Save" id="cankey-editor-save" class="pasteroid-editor-save" /> '+
 								'</form> '+
 							'</div>');
@@ -463,17 +463,22 @@
 		$doc.on('click', '.pasteroid-template', function(e) {
 			
 			e.preventDefault();
+			
 			var key = $(this).attr('data-key');
 
 			if(!$replyBox || !$replyBox.length)
 				$replyBox = $('textarea:first');
+				
+			//var caretPos = $replyBox.selectionStart;
+			var caretPos = document.getElementById("bbp_reply_content").selectionStart;
+			var textAreaTxt = $replyBox.val();
 
-			$replyBox.val( $replyBox.val() + cans[key]['text'] );
-			
+			$replyBox.val( textAreaTxt.substring(0, caretPos) + cans[key]['text'] + textAreaTxt.substring(caretPos) );
+
 			return false;
 			
 		});
-
+		
 		//Close Editor Function
 		$( '.pasteroid-editor-close' ).click( function( e ){
 
@@ -618,7 +623,7 @@
 
 			if( match ) {
 				
-				$( 'head' ).append( '<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />' );
+				//$( 'head' ).append( '<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300" />' );
 				
 				$( function() {
 					
