@@ -1,0 +1,1158 @@
+/*
+ * Theme Name:			Worx
+ * Theme URI:			http://anex.at
+ *
+ * Version:				1.0.0
+ * Status:				Release
+ *
+ * Author:				ANEX
+ * Author URI:			http://anex.at
+ *
+ * Description:			-
+ * Tags:				black, white, one-column, two-columns, left-sidebar, fluid-layout, responsive-layout, custom-menu, post-formats, translation-ready
+ *
+ * Text Domain:			worx
+ * Domain Path:			/lang/
+ *
+ * License:				Exclusive
+ * License URI:			-
+ *
+ */
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    color: #999;
+    font-size: 1.4rem;
+    font-family: 'Open Sans';
+	background: #222 url(background.jpg) center no-repeat fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    
+    body {
+        font-size: 1.6rem;
+    }
+    
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1em 0;
+    font-family: 'Raleway';
+}
+
+h1 {font-size: 5.0rem;}
+h2 {font-size: 4.0rem;}
+h3 {font-size: 3.0rem;}
+h4 {font-size: 2.6rem;}
+h5 {font-size: 2.2rem;}
+h6 {font-size: 1.8rem;}
+
+a {
+    color: #999;
+    text-decoration: none;
+
+	-webkit-transition: all .2s;
+	   -moz-transition: all .2s;
+		-ms-transition: all .2s;
+		 -o-transition: all .2s;
+			transition: all .2s;
+}
+
+a:focus,
+a:hover,
+a:active,
+a.active {
+    color: #CCC;
+    outline: none;
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 1em 0;
+    line-height: 1.8em;
+}
+
+p:last-child {
+    margin: 0;
+}
+
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=phone],
+input[type=password],
+input[type=button],
+input[type=submit],
+textarea {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #666;
+    background: rgba( 20, 20, 20, .25 );
+    color: #999;
+    font-weight: 300;
+    
+    -webkit-transition: all .2s;
+       -moz-transition: all .2s;
+        -ms-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
+}
+
+input[type=text]:focus,
+input[type=date]:focus,
+input[type=email]:focus,
+input[type=phone]:focus,
+input[type=password]:focus,
+textarea:focus {
+    color: #FFF;
+    border: 1px solid #999;
+    background: rgba( 20, 20, 20, .5 );
+    outline: none;
+}
+
+a.button,
+input[type=button],
+input[type=submit],
+input.button {
+    color: #999;
+    background: none;
+    cursor: pointer;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+a.button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input.button:hover {
+    color: #333;
+    border: 1px solid #333;
+    background: #EEE;
+}
+
+.button {
+    padding: 1em 3em;
+    display: inline-block;
+    border: 1px solid #999;
+}
+
+.button-large {
+    padding: 2em 4em;
+}
+
+/**
+ * ==================================================
+ * Fancy Form Labels
+ * ==================================================
+ */
+
+/*
+input[type=text]:after,
+textarea:after {
+    content: 'huhu';
+    width: 100px;
+    height: 100px;
+}
+
+
+
+/**
+ * ==================================================
+ * Ninja Form Styles
+ * ==================================================
+ */
+
+.ninja-forms-required-items {
+    display: none;
+}
+
+.ninja-forms-form-wrap .field-wrap {
+    margin: 0 0 3em 0;
+    position: relative;
+}
+
+.ninja-forms-form-wrap .field-wrap label {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-weight: 300;
+    
+    transition: all .2s .3s;
+}
+
+.ninja-forms-form-wrap .field-wrap input[type=text],
+.ninja-forms-form-wrap .field-wrap textarea {
+    position: relative;
+    z-index: 1;
+}
+
+.ninja-forms-form-wrap .field-wrap textarea:focus + label,
+.ninja-forms-form-wrap .field-wrap input[type=text]:focus + label {
+    color: #CCC;
+    -webkit-transform: translate(-1em, -3em) scale(.9);
+       -moz-transform: translate(-1em, -3em) scale(.9);
+        -ms-transform: translate(-1em, -3em) scale(.9);
+         -o-transform: translate(-1em, -3em) scale(.9);
+            transform: translate(-1em, -3em) scale(.9);
+    
+    -webkit-transform-origin: 0;
+       -moz-transform-origin: 0;
+        -ms-transform-origin: 0;
+         -o-transform-origin: 0;
+            transform-origin: 0;
+}
+
+.ninja-forms-form-wrap .field-wrap textarea:valid + label,
+.ninja-forms-form-wrap .field-wrap input[type=text]:valid + label {
+    opacity: 0;
+    
+}
+
+
+.ninja-forms-form-wrap .field-wrap .ninja-forms-field-error {
+    position: absolute;
+    right: 0;
+    bottom: -2em;
+    color: #FF4D4D;
+    font-size: 1.2rem;
+}
+
+/**
+ * ==================================================
+ * BASIC LAYOUT
+ * ==================================================
+ */
+
+.outer {
+    position: relative;
+    z-index: 1;
+}
+
+.wrap {
+	width: 100%;
+	margin: auto;
+    padding: 0 2em;
+}
+
+@media (min-width: 768px) {
+    .wrap {
+        padding: 0 5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrap {
+        padding: 0 10em;
+    }
+}
+
+.section {
+    width: 100%;
+    min-height: 90vh;
+    padding: 5vh 0;
+
+    position: relative;
+    
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    -webkit-transition: all 1s linear;
+       -moz-transition: all 1s linear;
+        -ms-transition: all 1s linear;
+         -o-transition: all 1s linear;
+            transition: all 1s linear;
+}
+
+@media (min-width: 768px) {
+    
+    .section {
+        min-height: 60vh;
+        padding: 20vh 0;
+    }
+    
+}
+
+
+.section .wrap {}
+
+.section-theme-dark .box {
+    background: rgb( 30, 30, 30 );
+    background: rgba( 30, 30, 30, .9 );
+}
+
+.section-theme-light .box {
+    background: rgb( 255, 255, 255 );
+    background: rgba( 255, 255, 255, .9 );
+}
+
+@media (min-width: 768px) {
+    
+    .section .wrap {}
+    
+    .section .box {}
+
+}
+
+@media (min-width: 992px) {
+    
+    .section .wrap {}
+
+    .section  .box {}
+
+}
+
+@media (min-width: 1200px) {
+    
+    .section .wrap {}
+
+    .section .box {padding: 0 2em;}
+
+}
+
+
+
+
+.header {display: none;}
+
+@media (min-width: 992px) {
+    
+    .header {
+        width: 100%;
+        padding: 0 1em 0 2em;
+        
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        display: block;
+        
+        opacity: 1;
+        background: rgba( 35, 35, 35, .95 );
+        
+        -webkit-transition: all .5s;
+           -moz-transition: all .5s;
+            -ms-transition: all .5s;
+             -o-transition: all .5s;
+                transition: all .5s;
+    }
+    
+    .header:hover,
+    .header.is-invisible:hover {
+        opacity: 1;
+        background: rgba( 35, 35, 35, .95 );
+    }
+    
+    .header.is-invisible {
+        opacity: 0.5;
+        background: rgba( 35, 35, 35, 0 );
+    }
+    
+    .home .header.is-visible .logo		{transform: translate(0, 0) scale(.5);}
+    .home .header.is-invisible .logo	{transform: translate(-100%, -100%) scale(0);}
+
+    .header-primary		{float: left;}
+    .header-secondary	{float: right;}
+
+}
+
+/**
+ * ==================================================
+ * LOGO
+ * ==================================================
+ */
+ 
+.logo {
+    margin: -15px 0;
+    
+    -webkit-transform: scale( 0.5 );
+       -moz-transform: scale( 0.5 );
+        -ms-transform: scale( 0.5 );
+         -o-transform: scale( 0.5 );
+            transform: scale( 0.5 );
+            
+    -webkit-transform-origin: 0;
+       -moz-transform-origin: 0;
+    	-ms-transform-origin: 0;
+    	 -o-transform-origin: 0;
+    		transform-origin: 0;
+            
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+
+/**
+ * ==================================================
+ * GLOBAL MENU
+ * ==================================================
+ */
+ 
+.menu {
+    font-family: 'Open Sans';
+    font-weight: 300;
+}
+
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu ul li {
+    float: left;
+}
+
+.menu ul li a {
+    text-transform: uppercase;
+}
+
+/* Hide last item (which is a separator */
+.menu-main ul li:last-child,
+.menu-footer ul li:last-child {
+    display: none;
+}
+
+/* Hide Submenu Items */
+.menu ul li ul {
+    display: none;
+}
+
+/**
+ * ==================================================
+ * MAIN MENU
+ * ==================================================
+ */
+
+.menu-main ul li a,
+.menu-main ul li span {
+    height: 90px;
+    padding: 0 .5em;
+    display: block;
+    
+    position: relative;
+
+    line-height: 90px;
+    
+    background: rgba( 50, 50, 50, 0 );
+
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+
+.menu-main ul li a {
+    padding: 0 2em;
+    color: #999;
+}
+
+.menu-main ul li span {
+    color: #666;
+}
+
+.menu-main ul li a:hover,
+.menu-main ul li a:active,
+.menu-main ul li a.active,
+.menu-main ul li a:focus {
+    outline: none;
+}
+
+.menu-main ul li a.active {
+    color: #CCC;
+}
+
+/* Menu Hover Effect */
+.menu-main ul li a:after {
+    content: '';
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    
+    opacity: 0;
+    background: rgba( 50, 50, 50, .5 );
+
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+    
+    -webkit-transform: skew(-20deg);
+       -moz-transform: skew(-20deg);
+        -ms-transform: skew(-20deg);
+         -o-transform: skew(-20deg);
+            transform: skew(-20deg);
+}
+
+.menu-main ul li a:hover:after,
+.menu-main ul li a:active:after,
+.menu-main ul li a.active:after {
+    opacity: 1;
+}
+
+/* MENU BLUR EFFECT */
+.menu-main:hover ul li a {
+    color: transparent;
+    text-shadow: 0 0 10px #FFF;
+}
+
+.menu-main:hover ul li a:hover {
+    color: #FFF;
+    text-shadow: none;
+}
+
+/**
+ * ==================================================
+ * MOBILE MENU
+ * ==================================================
+ */
+
+.menu-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba( 30, 30, 30, .95 );
+}
+
+
+.menu-mobile {display: flex;}
+.menu-mobile ul {width: 100%;}
+.menu-mobile ul li {width: 25%; float: left;}
+.menu-mobile ul li a {
+    padding: 1.5em 0;
+    display: block;
+    text-align: center;
+}
+
+.menu-mobile ul li.icon-home,
+.menu-mobile ul li.icon-blog,
+.menu-mobile ul li.icon-contact,
+.menu-mobile ul li.icon-more {
+    font-size: 0.6em;
+}
+
+.menu-mobile ul li a:before {
+    font-family: 'Ionicons';
+    display: block;
+    font-size: 2em;
+    margin: 0 0 5px 0;
+}
+
+.menu-mobile ul li.icon-home a:before		{content: "\f447";}
+.menu-mobile ul li.icon-about a:before		{content: "\f44c";}
+.menu-mobile ul li.icon-work a:before		{content: "\f3ed";}
+.menu-mobile ul li.icon-service a:before	{content: "\f358";}
+.menu-mobile ul li.icon-blog a:before		{content: "\f471";}
+.menu-mobile ul li.icon-contact a:before	{content: "\f422";}
+.menu-mobile ul li.icon-more a:before		{content: "\f46a";}
+
+.menu-mobile ul li a:hover,
+.menu-mobile ul li a:focus,
+.menu-mobile ul li a:active {
+    outline: none;
+    background: rgba(50,50,50,.5);
+}
+
+
+/* RESPONSIVE MENU BEHAVIOUR */
+
+.input-focus .menu-mobile {
+    display: none;
+}
+
+@media (min-width: 992px) {
+
+	.menu-mobile {
+        display: none;
+    }    
+
+}
+
+.main {margin: 0;}
+
+/* INTRO LOGO EFFECT */
+
+
+
+.section-start {
+    text-align: center;
+}
+
+.section-start .intro-logo {margin: 3em 0;}
+
+.section-start h3,
+.section-start h4 {
+    margin: 0 0 .5em 0;
+}
+
+.section-start .button {margin: 1em 0 0 0;}
+
+/* SCROLL NEXT ARROW */
+.scroll-next {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 5vh;
+    left: calc( 50% - 25px );
+    line-height: 50px;
+    text-align: center;
+    font-size: 4rem;
+	-webkit-animation: Pulsating 3s ease infinite alternate;
+	   -moz-animation: Pulsating 3s ease infinite alternate;
+			animation: Pulsating 3s ease infinite alternate;
+}
+
+.scroll-next:hover {
+    color: #EEE;
+    transform: scale(2);
+    animation-play-state: paused;
+}
+
+@-webkit-keyframes Pulsating {
+	0%		{color: #666; transform: scale(1);}	
+	100%	{color: #EEE; transform: scale(1.5);}
+}
+
+@-moz-keyframes Pulsating {
+	0%		{color: #666; transform: scale(1);}	
+	100%	{color: #EEE; transform: scale(1.5);}
+}
+
+@keyframes Pulsating {
+	0%		{color: #666; transform: scale(1);}	
+	100%	{color: #EEE; transform: scale(1.5);}
+}
+
+.footer {
+    display: none;
+}
+
+@media (min-width: 992px) {
+
+    .footer {
+        width: calc(100% - 4em);
+        padding: 0 0 1em 0;
+        display: block;
+        font-size: 1.4rem;
+    }
+    
+    .footer-primary		{float: left;}
+    .footer-secondary	{float: right;}
+    
+    .footer .menu ul {padding: 0; margin: 0; list-style: none;}
+    .footer .menu ul li {float: left; margin: 0 0 0 1em;}
+    .footer .menu ul li a {text-transform: uppercase;}
+    
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 2em;
+        right: 2em;
+        z-index: 10;
+        
+        -webkit-transition: all .5s;
+           -moz-transition: all .5s;
+            -ms-transition: all .5s;
+             -o-transition: all .5s;
+                transition: all .5s;
+    }
+    
+    .footer.is-visible {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    
+    .footer.is-invisible {
+        opacity: 0;
+        transform: translate(0, 100%);
+    }
+    
+}
+
+.section-header {
+    text-align: center;
+    margin: 0 0 10em 0;
+}
+
+
+.section-header .title {
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.section-header .title:before ,
+.section-header .title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid #666;
+    
+    -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+        -ms-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+}
+
+.section-header .title:before {
+    transform: translate(0,0);
+}
+
+.section-header .title:after {
+    transform: translate(0,0);
+}
+
+.fp-completely .section-header .title:before {
+    transform: translate(0,-50px);
+}
+
+.fp-completely .section-header .title:after {
+    transform: translate(0,10px);
+}
+
+/**
+ * ==================================================
+ * ANIMATION: BACKGROUND
+ * ==================================================
+ */
+
+@-webkit-keyframes BackgroundAnimation {
+	0%		{background-position: 0 43%;}	
+	50%		{background-position: 100% 58%;}	
+	100%	{background-position: 0 43%;}
+}
+
+@-moz-keyframes BackgroundAnimation {
+	0%		{background-position: 0 43%;}	
+	50%		{background-position: 100% 58%;}
+	100%	{background-position: 0 43%;}
+}
+
+@keyframes BackgroundAnimation {
+	0%		{background-position: 0 43%;}
+	50%		{background-position: 100% 58%;}
+	100%	{background-position: 0 43%;}
+}
+
+/*
+ * ==================================================
+ * COMPONENT: SCROLLBAR
+ * ==================================================
+ */
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 5px;
+	background-color: #333;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+	height: 0;
+	display: block;
+	background-color: #111;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #111;
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #222;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	height: 50px;
+	background-color: #444 !important;
+}
+
+/**
+ * ==================================================
+ * HEXAGON
+ * ==================================================
+ */
+
+.hexagon-container {
+    text-align: center;
+}
+
+/*
+ * Wrapper Element
+ * ==========
+ * The default hexagon is 100px width and 116px in height. This makes the base hexagon.
+ * It should only get resized with transform: scale(N);
+ */
+
+.hexagon-wrap {
+    width: 100px;
+    height: 116px;
+    margin: 0;
+    color: #CCC;
+    font-size: 5.4rem;
+    line-height: 1;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+/* General Hexagon Layout */
+.hexagon-wrap .hexagon {
+    position: absolute;
+    width: 100px; 
+    height: 57.74px;
+    margin: 28.87px 0;
+    top: 0;
+    left: 0;
+    border-left: solid 2px #999;
+    border-right: solid 2px #999;
+}
+
+.hexagon-wrap .hexagon:before,
+.hexagon-wrap .hexagon:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 70.71px;
+    height: 70.71px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 12.6447px;
+}
+
+.hexagon-wrap .hexagon:before {
+    top: -35.3553px;
+    border-top: solid 2.8284px #999;
+    border-right: solid 2.8284px #999;
+}
+
+.hexagon-wrap .hexagon:after {
+    bottom: -35.3553px;
+    border-bottom: solid 2.8284px #999;
+    border-left: solid 2.8284px #999;
+}
+
+/* Additional Elements */
+.hexagon-wrap span {
+    position: absolute;
+    z-index: 1;
+    top: .5em;
+}
+
+.hexagon-wrap .first-letter {
+    width: 100%;
+    display: inline-block;
+    
+    left: 0;
+    color: #999;
+    text-align: center;
+    
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+.hexagon-wrap .label {
+    padding: 0 0 0 .5em;
+    
+    top: .55em;
+    left: 100%;
+    color: #999;
+    letter-spacing: .1em;
+    white-space: nowrap;
+
+    -webkit-transform-origin: 0;
+    		transform-origin: 0;
+    
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+/* Resize */
+.hexagon-wrap .hexagon-inner,
+.hexagon-wrap .label {
+    -webkit-transform: rotate(0) scale( 0.8 );
+       -moz-transform: rotate(0) scale( 0.8 );
+        -ms-transform: rotate(0) scale( 0.8 );
+         -o-transform: rotate(0) scale( 0.8 );
+            transform: rotate(0) scale( 0.8 );
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+/* Hover Effect */
+.hexagon-hover .hexagon-wrap:hover .hexagon-outer {
+    -webkit-transform: rotate(-360deg) scale(1.2);
+       -moz-transform: rotate(-360deg) scale(1.2);
+        -ms-transform: rotate(-360deg) scale(1.2);
+         -o-transform: rotate(-360deg) scale(1.2);
+            transform: rotate(-360deg) scale(1.2);
+}
+
+.hexagon-hover .hexagon-wrap:hover .hexagon-inner {
+    -webkit-transform: rotate(360deg) scale(0.9);
+       -moz-transform: rotate(360deg) scale(0.9);
+        -ms-transform: rotate(360deg) scale(0.9);
+         -o-transform: rotate(360deg) scale(0.9);
+            transform: rotate(360deg) scale(0.9);
+}
+
+.hexagon-hover .hexagon-wrap:hover .first-letter {
+    -webkit-transform: rotate(-360deg) scale(1.1);
+       -moz-transform: rotate(-360deg) scale(1.1);
+        -ms-transform: rotate(-360deg) scale(1.1);
+         -o-transform: rotate(-360deg) scale(1.1);
+            transform: rotate(-360deg) scale(1.1);
+}
+
+
+.hexagon-wrap .hexagon,
+.hexagon-wrap span {
+    -webkit-transition: all .2s;
+       -moz-transition: all .2s;
+        -ms-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
+            
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+/* Colorize Effect */
+.hexagon-colorize .hexagon-outer,
+.hexagon-colorize .hexagon-outer:before,
+.hexagon-colorize .hexagon-outer:after {
+	-webkit-animation: BorderAnimation 10s ease infinite alternate;
+	   -moz-animation: BorderAnimation 10s ease infinite alternate;
+			animation: BorderAnimation 10s ease infinite alternate;
+}
+
+.hexagon-colorize .hexagon-inner,
+.hexagon-colorize .hexagon-inner:before,
+.hexagon-colorize .hexagon-inner:after {
+	-webkit-animation: BorderAnimationAlt 12s ease infinite alternate;
+	   -moz-animation: BorderAnimationAlt 12s ease infinite alternate;
+			animation: BorderAnimationAlt 12s ease infinite alternate;
+}
+
+.hexagon-colorize .first-letter {
+	-webkit-animation: Pulse 10s ease infinite alternate;
+	   -moz-animation: Pulse 10s ease infinite alternate;
+			animation: Pulse 10s ease infinite alternate;
+}
+
+
+
+
+
+/* Various Colors */
+.hexagon-service-concept .hexagon-outer,
+.hexagon-service-concept .hexagon-outer:before,
+.hexagon-service-concept .hexagon-outer:after {
+    border-color: rgb(255,255,191);
+}
+
+.hexagon-service-concept .first-letter {
+    color: rgb(255,255,191);
+}
+
+.hexagon-service-design .hexagon-outer,
+.hexagon-service-design .hexagon-outer:before,
+.hexagon-service-design .hexagon-outer:after {
+    border-color: rgb(255,204,153);
+}
+
+.hexagon-service-design .first-letter {
+    color: rgb(255,204,153);
+}
+
+.hexagon-service-development .hexagon-outer,
+.hexagon-service-development .hexagon-outer:before,
+.hexagon-service-development .hexagon-outer:after {
+    border-color: rgb(185,115,255);
+}
+
+.hexagon-service-development .first-letter {
+    color: rgb(185,115,255);
+}
+
+.hexagon-service-marketing .hexagon-outer,
+.hexagon-service-marketing .hexagon-outer:before,
+.hexagon-service-marketing .hexagon-outer:after {
+    border-color: rgb(38,147,255);
+}
+
+.hexagon-service-marketing .first-letter {
+    color: rgb(38,147,255);
+}
+
+.hexagon-service-seo .hexagon-outer,
+.hexagon-service-seo .hexagon-outer:before,
+.hexagon-service-seo .hexagon-outer:after {
+    border-color: rgb(115,255,185);
+}
+
+.hexagon-service-seo .first-letter {
+    color: rgb(115,255,185);
+}
+
+.hexagon-service-hosting .hexagon-outer,
+.hexagon-service-hosting .hexagon-outer:before,
+.hexagon-service-hosting .hexagon-outer:after {
+    border-color: rgb(0,217,217);
+}
+
+.hexagon-service-hosting .first-letter {
+    color: rgb(0,217,217);
+}
+
+.hexagon-service-support .hexagon-outer,
+.hexagon-service-support .hexagon-outer:before,
+.hexagon-service-support .hexagon-outer:after {
+    border-color: rgb(217,163,0);
+}
+
+.hexagon-service-support .first-letter {
+    color: rgb(217,163,0);
+}
+
+
+/* Sizes */
+.hexagon-small .hexagon-wrap {
+    -webkit-transform: scale( 0.5 );
+       -moz-transform: scale( 0.5 );
+        -ms-transform: scale( 0.5 );
+         -o-transform: scale( 0.5 );
+            transform: scale( 0.5 );
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+.hexagon-large .hexagon-wrap {
+    -webkit-transform: scale( 1.5 );
+       -moz-transform: scale( 1.5 );
+        -ms-transform: scale( 1.5 );
+         -o-transform: scale( 1.5 );
+            transform: scale( 1.5 );
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+/* Block */
+
+.hexagon-block .hexagon-wrap {
+    width: 100px;
+    height: 150px;
+}
+
+.hexagon-block .hexagon-wrap .label {
+    width: 200%;
+    padding: 0;
+    top: auto;
+    bottom: 0;
+    left: -50%;
+    right: -50%;
+    text-align: center;
+    font-size: 2rem;
+    
+    -webkit-transform-origin: center;
+       -moz-transform-origin: center;
+        -ms-transform-origin: center;
+         -o-transform-origin: center;
+            transform-origin: center;
+}
+/**
+ * ==================================================
+ * ANIMATION: BORDER
+ * ==================================================
+ */
+
+@-webkit-keyframes BorderAnimation {
+	0%		{border-color: #909;}	
+	50%		{border-color: #099;}	
+	100%	{border-color: #990;}
+}
+
+@-moz-keyframes BorderAnimation {
+	0%		{border-color: #909;}	
+	50%		{border-color: #099;}	
+	100%	{border-color: #990;}
+}
+
+@keyframes BorderAnimation {
+
+	0%		{border-color: #909;}	
+	50%		{border-color: #099;}	
+	100%	{border-color: #990;}
+}
+
+@-webkit-keyframes BorderAnimationAlt {
+	0%		{border-color: #666;}	
+	50%		{border-color: #999;}	
+	100%	{border-color: #CCC;}
+}
+
+@-moz-keyframes BorderAnimationAlt {
+	0%		{border-color: #666;}	
+	50%		{border-color: #999;}	
+	100%	{border-color: #CCC;}
+}
+
+@keyframes BorderAnimationAlt {
+	0%		{border-color: #666;}	
+	50%		{border-color: #999;}	
+	100%	{border-color: #CCC;}
+}
+
+@-webkit-keyframes Pulse {
+	0%		{color: #909;}	
+	50%		{color: #099;}	
+	100%	{color: #990;}
+}
+
+@-moz-keyframes Pulse {
+	0%		{color: #909;}	
+	50%		{color: #099;}	
+	100%	{color: #990;}
+}
+
+@keyframes Pulse {
+	0%		{color: #909;}	
+	50%		{color: #099;}	
+	100%	{color: #990;}
+}
